@@ -9,5 +9,6 @@ namespace CMS.Entities.Concrete
     public class MissionComment : CommentEntityBase<Mission>
     {
         public ICollection<MissionCommentDocs> Docs { get; set; }
+        public ICollection<MissionCommentReply> Replies { get; set; }
     }
 }

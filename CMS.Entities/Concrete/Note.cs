@@ -9,7 +9,8 @@ namespace CMS.Entities.Concrete
 {
     public class Note: ChildPrimitiveEntity<Company>
     {
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public  int UserId { get; set; }
+        public  User User { get; set; }
+  
     }
 }

@@ -11,10 +11,8 @@ namespace CMS.Entities.Concrete
     {
         public int CompanyId { get; set; }
         public Company Company { get; set; }
-        public int StatusId { get; set; }
-        public Status Status { get; set; }
-        public ICollection<ProjectTag> Tags { get; set; }
-        public ICollection<ProjectUser> Users { get; set; }
-        public ICollection<MissionComment> Comments { get; set; }
+        public ICollection<ProjectTag> ProjectTags { get; set; }
+        public ICollection<ProjectUser> ProjectUsers { get; set; }
+        public ICollection<Mission> Missions { get; set; }
     }
 }

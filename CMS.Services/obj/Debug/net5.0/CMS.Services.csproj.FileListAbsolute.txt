@@ -1,0 +1,12 @@
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Services.deps.json
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Services.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\ref\CMS.Services.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Services.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\ref\CMS.Services.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.pdb

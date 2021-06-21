@@ -13,6 +13,5 @@ namespace CMS.Entities.Abstract
         public DateTime FinalDate { get; set; }
         public int StatusId { get; set; }
         public Status Status { get; set; }
-        public ICollection<Tag> Tags { get; set; }
     }
 }

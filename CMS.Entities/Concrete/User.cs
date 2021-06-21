@@ -22,8 +22,8 @@ namespace CMS.Entities.Concrete
 
         public ICollection<Reminder> Reminders { get; set; }
         public ICollection<Note> Notes { get; set; }
-        public ICollection<ProjectUser> Projects { get; set; }
-        public ICollection<MissionUser> Missions { get; set; }
+        public ICollection<ProjectUser> ProjectUsers { get; set; }
+        public ICollection<MissionUser> MissionUsers { get; set; }
         public ICollection<MissionComment> MissionComments { get; set; }
         public ICollection<MissionCommentReply> MissionCommentReplies { get; set; }
     }

@@ -12,7 +12,7 @@ namespace CMS.Entities.Concrete
     {
         public string BillAddress{ get; set; }
         public long TaxNum { get; set; }
-        public string EMAil { get; set; }
+        public string EMail { get; set; }
         public long ContactNumber { get; set; }
         public string Icon { get; set; }
         public ICollection<Project> Projects { get; set; }
@@ -21,6 +21,7 @@ namespace CMS.Entities.Concrete
         public ICollection<Mail> Mails { get; set; }
         public ICollection<Central> Centrals { get; set; }
         public ICollection<Domain> Domains { get; set; }
+        public ICollection<User> Users { get; set; }
 
     }
 }

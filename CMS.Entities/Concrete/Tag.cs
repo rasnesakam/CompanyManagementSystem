@@ -9,7 +9,7 @@ namespace CMS.Entities.Concrete
 {
     public class Tag: PrimitiveEntity
     {
-        public ICollection<ProjectTag> Projects { get; set; }
-        public ICollection<MissionTag> Missions { get; set; }
+        public ICollection<ProjectTag> ProjectTags { get; set; }
+        public ICollection<MissionTag> MissionTags { get; set; }
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Entities.deps.json
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Entities.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\ref\CMS.Entities.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Entities.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Shared.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Shared.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.csproj.CopyComplete
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\ref\CMS.Entities.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.pdb
