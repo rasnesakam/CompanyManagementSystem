@@ -1,5 +1,7 @@
-﻿using CMS.Data.Concrete.EntityFramework.Mappings.Concrete;
+﻿using CMS.Data.Concrete.EntityFramework.Mappings.Abstract;
+using CMS.Data.Concrete.EntityFramework.Mappings.Concrete;
 using CMS.Entities.Concrete;
+using CMS.Shared.Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

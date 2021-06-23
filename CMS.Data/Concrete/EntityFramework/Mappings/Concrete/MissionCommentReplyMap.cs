@@ -20,9 +20,6 @@ namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
                 .IsRequired()
                 .HasMaxLength(250);
 
-            builder.HasOne<User>(c => c.User).WithMany(u => u.MissionCommentReplies).HasForeignKey(c => c.UserId);
-            builder.HasOne<MissionComment>(c => c.Parent).WithMany(m => m.Replies).HasForeignKey(c => c.ParentId);
-
             builder.ToTable("Mission_Comments_Replies");
 
         }

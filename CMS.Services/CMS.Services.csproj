@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.Entities\CMS.Entities.csproj" />
+    <ProjectReference Include="..\CMS.Shared\CMS.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
