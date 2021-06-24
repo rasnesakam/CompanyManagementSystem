@@ -135,7 +135,7 @@ namespace CMS.Data.Concrete.EntityFramework.Contexts
             modelBuilder.Entity<MissionCommentReply>()
                 .HasOne(e => e.Parent)
                 .WithMany(p => p.Replies)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasForeignKey(e => e.ParentId);
 
             modelBuilder.Entity<Project>()

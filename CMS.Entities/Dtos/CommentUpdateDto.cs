@@ -1,18 +1,19 @@
 ﻿using CMS.Entities.Abstract;
-using CMS.Entities.Concrete;
 using CMS.Shared.Entities.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class CommentDto<CEntity,PEntity>: DtoGetBase
+    public class CommentUpdateDto<CEntity,PEntity>:CommentAddDto<CEntity,PEntity>
         where PEntity: EntityBase,new()
         where CEntity: CommentEntityBase<PEntity>
     {
-        public CEntity Comment { get; set; }
+        [Required]
+        public int Id { get; set; }
     }
 }

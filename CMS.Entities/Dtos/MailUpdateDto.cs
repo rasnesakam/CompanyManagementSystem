@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class CompanyUpdateDto: CompanyAddDto
+    public class MailUpdateDto: MailAddDto
     {
         public int Id { get; set; }
     }

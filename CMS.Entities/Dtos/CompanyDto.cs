@@ -12,6 +12,5 @@ namespace CMS.Entities.Dtos
     public class CompanyDto: DtoGetBase
     {
         public Company Company { get; set; }
-        public override ResultStatus ResultStatus { get; set; } = ResultStatus.Success;
     }
 }
