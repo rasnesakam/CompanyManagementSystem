@@ -15,7 +15,7 @@ namespace CMS.Services.Abstract
         Task<IDataResult<DomainDto>> Add(DomainAddDto domainAddDto, string userName);
         Task<IDataResult<DomainDto>> Update(DomainUpdateDto domainUpdateDto, string userName);
 
-        Task<IResult> Delete(int domainId);
+        Task<IResult> Delete(int domainId, string userName);
         Task<IResult> HardDelete(int domainId);
     }
 }
