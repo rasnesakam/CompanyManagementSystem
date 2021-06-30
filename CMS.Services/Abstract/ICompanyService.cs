@@ -8,9 +8,12 @@ namespace CMS.Services.Abstract
     {
         Task<IDataResult<CompanyDto>> Get(int companyId);
         Task<IDataResult<CompanyListDto>> GetAll();
+        Task<IDataResult<CompanyListDto>> GetAllByNonDeleted();
+        Task<IDataResult<CompanyListDto>> GetAllByDeleted();
+        Task<IDataResult<CompanyListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IResult> Add(CompanyAddDto companyAddDto, string userName);
-        Task<IResult> Update(CompanyUpdateDto companyUpdateDto, string userName);
+        Task<IDataResult<CompanyDto>> Add(CompanyAddDto companyAddDto, string userName);
+        Task<IDataResult<CompanyDto>> Update(CompanyUpdateDto companyUpdateDto, string userName);
 
         Task<IResult> Delete(int companyId);
         Task<IResult> HardDelete(int companyId);

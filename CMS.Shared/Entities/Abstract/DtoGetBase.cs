@@ -10,5 +10,6 @@ namespace CMS.Shared.Entities.Abstract
     public class DtoGetBase
     {
         public virtual ResultStatus ResultStatus { get; set; } = ResultStatus.Success;
+        public virtual string Message { get; set; }
     }
 }

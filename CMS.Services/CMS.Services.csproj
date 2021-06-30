@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.Data\CMS.Data.csproj" />
     <ProjectReference Include="..\CMS.Entities\CMS.Entities.csproj" />
     <ProjectReference Include="..\CMS.Shared\CMS.Shared.csproj" />
   </ItemGroup>

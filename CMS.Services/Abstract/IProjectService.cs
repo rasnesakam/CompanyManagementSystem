@@ -12,9 +12,12 @@ namespace CMS.Services.Abstract
     {
         Task<IDataResult<ProjectDto>> Get(int projectId);
         Task<IDataResult<ProjectListDto>> GetAll();
+        Task<IDataResult<ProjectListDto>> GetAllByNonDeleted();
+        Task<IDataResult<ProjectListDto>> GetAllByDeleted();
+        Task<IDataResult<ProjectListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IResult> Add(ProjectAddDto projectAddDto, string userName);
-        Task<IResult> Update(ProjectUpdateDto projectUpdateDto, string userName);
+        Task<IDataResult<ProjectDto>> Add(ProjectAddDto projectAddDto, string userName);
+        Task<IDataResult<ProjectDto>> Update(ProjectUpdateDto projectUpdateDto, string userName);
 
         Task<IResult> Delete(int projectId);
         Task<IResult> HardDelete(int projectId);

@@ -10,13 +10,16 @@ namespace CMS.Services.Abstract
 {
     public interface ICentralService
     {
-        Task<IDataResult<CentralDto>> Get(int centralyId);
+        Task<IDataResult<CentralDto>> Get(int centralId);
         Task<IDataResult<CentralListDto>> GetAll();
+        Task<IDataResult<CentralListDto>> GetAllByNonDeleted();
+        Task<IDataResult<CentralListDto>> GetAllByDeleted();
+        Task<IDataResult<CentralListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IResult> Add(CentralAddDto centralAddDto, string userName);
-        Task<IResult> Update(CentralUpdateDto centralUpdateDto, string userName);
+        Task<IDataResult<CentralDto>> Add(CentralAddDto centralAddDto, string userName);
+        Task<IDataResult<CentralDto>> Update(CentralUpdateDto centralUpdateDto, string userName);
 
-        Task<IResult> Delete(int centralId);
+        Task<IResult> Delete(int centralId,string userName);
         Task<IResult> HardDelete(int centralId);
     }
 }

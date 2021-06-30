@@ -8,9 +8,12 @@ namespace CMS.Services.Abstract
     {
         Task<IDataResult<MailDto>> Get(int mailId);
         Task<IDataResult<MailListDto>> GetAll();
+        Task<IDataResult<MailListDto>> GetAllByNonDeleted();
+        Task<IDataResult<MailListDto>> GetAllByDeleted();
+        Task<IDataResult<MailListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IResult> Add(MailAddDto mailAddDto, string userName);
-        Task<IResult> Update(MailUpdateDto mailUpdateDto, string userName);
+        Task<IMailService> Add(MailAddDto mailAddDto, string userName);
+        Task<IMailService> Update(MailUpdateDto mailUpdateDto, string userName);
 
         Task<IResult> Delete(int mailId);
         Task<IResult> HardDelete(int mailId);

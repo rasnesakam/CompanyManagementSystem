@@ -1,6 +1,11 @@
-﻿using CMS.Entities.Dtos;
+﻿using AutoMapper;
+using CMS.Data.Abstract;
+using CMS.Entities.Concrete;
+using CMS.Entities.Dtos;
 using CMS.Services.Abstract;
 using CMS.Shared.Utilities.Results.Abstract;
+using CMS.Shared.Utilities.Results.ComplexTypes;
+using CMS.Shared.Utilities.Results.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,34 +16,147 @@ namespace CMS.Services.Concrete
 {
     public class CentralManager : ICentralService
     {
-        public Task<IResult> Add(CentralAddDto centralAddDto, string userName)
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public CentralManager(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
-        public Task<IResult> Delete(int centralId)
+        public async Task<IDataResult<CentralDto>> Add(CentralAddDto centralAddDto, string userName)
         {
-            throw new NotImplementedException();
+            var central = _mapper.Map<Central>(centralAddDto);
+            central.CreatedByName = userName;
+            await _unitOfWork.Centrals.AddAsync(central).ContinueWith(t =>_unitOfWork.SaveAsync());
+            return new DataResult<CentralDto>(ResultStatus.Success, message: $"\"{central.Name}\" adlı santral başarıyla eklendi", data: new CentralDto
+            {
+                Central = central,
+                ResultStatus = ResultStatus.Success
+            });
         }
 
-        public Task<IDataResult<CentralDto>> Get(int centralyId)
+        public async Task<IResult> Delete(int centralId,string userName)
         {
-            throw new NotImplementedException();
+            var central = await _unitOfWork.Centrals.GetAsync( c => c.Id == centralId);
+            if (central != null)
+            {
+                central.IsDeleted = true;
+                central.ModifiedByName = userName;
+                central.ModifiedDate = DateTime.Now;
+                await _unitOfWork.Centrals.UpdateAsync(central);
+                await _unitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success,message:"Santral başarıyla silindi. Çöp kutusundan geri alabilirsiniz.");
+            }
+            return new Result(ResultStatus.Error, message:"Santrali silmeye çalışırken bir hata meydana geldi.");
+
         }
 
-        public Task<IDataResult<CentralListDto>> GetAll()
+        public async Task<IDataResult<CentralDto>> Get(int centralId)
         {
-            throw new NotImplementedException();
+            var central = await _unitOfWork.Centrals.GetAsync(c => c.Id == centralId, c => c.Parent);
+            if (central != null) return new DataResult<CentralDto>(ResultStatus.Success, new CentralDto
+            {
+                Central = central,
+                ResultStatus = ResultStatus.Success
+            });
+            else return new DataResult<CentralDto>(ResultStatus.Error, null, "Aranan santral bulunamadı");
         }
 
-        public Task<IResult> HardDelete(int centralId)
+        public async Task<IDataResult<CentralListDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var centrals = await _unitOfWork.Centrals.GetAllAsync(null, c => c.Parent);
+            if (centrals.Count > -1) return new DataResult<CentralListDto>(ResultStatus.Success, new CentralListDto
+            {
+                Centrals = centrals,
+                ResultStatus = ResultStatus.Success
+            });
+
+            else return new DataResult<CentralListDto>(ResultStatus.Error, message: "Santral bulunamadı", data: new CentralListDto
+            {
+                Centrals = null,
+                ResultStatus = ResultStatus.Error,
+                Message = "Santral bulunamadı"
+            });
         }
 
-        public Task<IResult> Update(CentralUpdateDto centralUpdateDto, string userName)
+        public async Task<IDataResult<CentralListDto>> GetAllByActiveAndNonDeleted()
         {
-            throw new NotImplementedException();
+            var centrals = await _unitOfWork.Centrals.GetAllAsync(c => c.IsActive && !c.IsDeleted, c => c.Parent);
+            if (centrals.Count > -1) return new DataResult<CentralListDto>(ResultStatus.Success, new CentralListDto
+            {
+                Centrals = centrals,
+                ResultStatus = ResultStatus.Success
+            });
+
+            else return new DataResult<CentralListDto>(ResultStatus.Error, message: "Santral bulunamadı", data: new CentralListDto
+            {
+                Centrals = null,
+                ResultStatus = ResultStatus.Error,
+                Message = "Santral bulunamadı"
+            });
+        }
+
+        public async Task<IDataResult<CentralListDto>> GetAllByDeleted()
+        {
+            var centrals = await _unitOfWork.Centrals.GetAllAsync(c => c.IsDeleted, c => c.Parent);
+            if (centrals.Count > -1) return new DataResult<CentralListDto>(ResultStatus.Success, new CentralListDto
+            {
+                Centrals = centrals,
+                ResultStatus = ResultStatus.Success
+            });
+
+            else return new DataResult<CentralListDto>(ResultStatus.Error, message: "Santral bulunamadı", data: new CentralListDto
+            {
+                Centrals = null,
+                ResultStatus = ResultStatus.Error,
+                Message = "Santral bulunamadı"
+            });
+        }
+
+        public async Task<IDataResult<CentralListDto>> GetAllByNonDeleted()
+        {
+            var centrals = await _unitOfWork.Centrals.GetAllAsync(c => !c.IsDeleted, c => c.Parent);
+            if (centrals.Count > -1) return new DataResult<CentralListDto>(ResultStatus.Success, new CentralListDto
+            {
+                Centrals = centrals,
+                ResultStatus = ResultStatus.Success
+            });
+
+            else return new DataResult<CentralListDto>(ResultStatus.Error, message: "Santral bulunamadı", data: new CentralListDto
+            {
+                Centrals = null,
+                ResultStatus = ResultStatus.Error,
+                Message = "Santral bulunamadı"
+            });
+        }
+
+        public async Task<IResult> HardDelete(int centralId)
+        {
+            var central = await _unitOfWork.Centrals.GetAsync(c => c.Id == centralId);
+            if (central != null)
+            {
+                await _unitOfWork.Centrals.DeleteAsync(central);
+                await _unitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, "Santral kalıcı olarak silindi");
+            }
+            else return new Result(ResultStatus.Error, "Santral silinirken hata oluştu");
+        }
+
+        public async Task<IDataResult<CentralDto>> Update(CentralUpdateDto centralUpdateDto, string userName)
+        {
+            var central = _mapper.Map<Central>(centralUpdateDto);
+            central.ModifiedByName = userName;
+            central.ModifiedDate = DateTime.Now;
+            var updatedCentral = await _unitOfWork.Centrals.UpdateAsync(central);
+            await _unitOfWork.SaveAsync();
+            return new DataResult<CentralDto>(ResultStatus.Success, new CentralDto
+            {
+                Central = updatedCentral,
+                ResultStatus = ResultStatus.Success,
+                Message = "Santral başarıyla güncellendi"
+            });
         }
     }
 }

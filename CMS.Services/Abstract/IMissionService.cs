@@ -13,9 +13,12 @@ namespace CMS.Services.Abstract
     {
         Task<IDataResult<MissionDto>> Get(int missionId);
         Task<IDataResult<MissionListDto>> GetAll();
+        Task<IDataResult<MissionListDto>> GetAllByNonDeleted();
+        Task<IDataResult<MissionListDto>> GetAllByDeleted();
+        Task<IDataResult<MissionListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IResult> Add(MissionAddDto missionAddDto, string userName);
-        Task<IResult> Update(MissionUpdateDto missionUpdateDto, string userName);
+        Task<IDataResult<MissionDto>> Add(MissionAddDto missionAddDto, string userName);
+        Task<IDataResult<MissionDto>> Update(MissionUpdateDto missionUpdateDto, string userName);
 
         Task<IResult> Delete(int missionId);
         Task<IResult> HardDelete(int missionId);

@@ -11,10 +11,13 @@ namespace CMS.Services.Abstract
         where CEntity: CommentEntityBase<PEntity>
     {
         Task<IDataResult<CommentDto<CEntity,PEntity>>> Get(int commentId);
+        Task<IDataResult<CommentListDto<CEntity,PEntity>>> GetAllByNonDeleted();
+        Task<IDataResult<CommentListDto<CEntity,PEntity>>> GetAllByDeleted();
+        Task<IDataResult<CommentListDto<CEntity,PEntity>>> GetAllByActiveAndNonDeleted();
         Task<IDataResult<CommentListDto<CEntity, PEntity>>> GetAll();
 
-        Task<IResult> Add(CommentAddDto<CEntity, PEntity> commentAddDto, string userName);
-        Task<IResult> Update(CommentUpdateDto<CEntity, PEntity> commentUpdateDto, string userName);
+        Task<IDataResult<CommentDto<CEntity,PEntity>>> Add(CommentAddDto<CEntity, PEntity> commentAddDto, string userName);
+        Task<IDataResult<CommentDto<CEntity,PEntity>>> Update(CommentUpdateDto<CEntity, PEntity> commentUpdateDto, string userName);
 
         Task<IResult> Delete(int commentId);
         Task<IResult> HardDelete(int commentId);

@@ -12,9 +12,12 @@ namespace CMS.Services.Abstract
     {
         Task<IDataResult<ReplyDto>> Get(int replyId);
         Task<IDataResult<ReplyListDto>> GetAll();
+        Task<IDataResult<ReplyListDto>> GetAllByNonDeleted();
+        Task<IDataResult<ReplyListDto>> GetAllByDeleted();
+        Task<IDataResult<ReplyListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IResult> Add(ReplyAddDto replyAddDto, string userName);
-        Task<IResult> Update(ReplyUpdateDto replyUpdateDto, string userName);
+        Task<IDataResult<ReplyDto>> Add(ReplyAddDto replyAddDto, string userName);
+        Task<IDataResult<ReplyDto>> Update(ReplyUpdateDto replyUpdateDto, string userName);
 
         Task<IResult> Delete(int replyId);
         Task<IResult> HardDelete(int replyId);
