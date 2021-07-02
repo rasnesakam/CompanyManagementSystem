@@ -12,10 +12,10 @@ namespace CMS.Services.Abstract
         Task<IDataResult<MailListDto>> GetAllByDeleted();
         Task<IDataResult<MailListDto>> GetAllByActiveAndNonDeleted();
 
-        Task<IMailService> Add(MailAddDto mailAddDto, string userName);
-        Task<IMailService> Update(MailUpdateDto mailUpdateDto, string userName);
+        Task<IDataResult<MailDto>> Add(MailAddDto mailAddDto, string userName);
+        Task<IDataResult<MailDto>> Update(MailUpdateDto mailUpdateDto, string userName);
 
-        Task<IResult> Delete(int mailId);
+        Task<IResult> Delete(int mailId, string userName);
         Task<IResult> HardDelete(int mailId);
     }
 }
