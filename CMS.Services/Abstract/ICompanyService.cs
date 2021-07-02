@@ -15,7 +15,7 @@ namespace CMS.Services.Abstract
         Task<IDataResult<CompanyDto>> Add(CompanyAddDto companyAddDto, string userName);
         Task<IDataResult<CompanyDto>> Update(CompanyUpdateDto companyUpdateDto, string userName);
 
-        Task<IResult> Delete(int companyId);
+        Task<IResult> Delete(int companyId,string userName);
         Task<IResult> HardDelete(int companyId);
     }
 }
