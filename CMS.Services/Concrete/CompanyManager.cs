@@ -173,6 +173,7 @@ namespace CMS.Services.Concrete
                 ResultStatus = ResultStatus.Success,
                 Message = "Şirket verileri başarılı bir şekilde güncellendi"
             });
+
         }
     }
 }
