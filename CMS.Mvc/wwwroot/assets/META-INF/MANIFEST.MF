@@ -1,0 +1,50 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1588670269386
+Build-Jdk: 1.8.0_212-release
+Built-By: pol
+Bundle-Category: jahia-module
+Bundle-Description: A kickass library used to manage poppers in web appl
+ ications. Popper.js is a positioning engine, its purpose is to calculat
+ e the position of an element to make it possible to position it near a 
+ given reference element.
+Bundle-DocURL: http://www.jahia.com
+Bundle-ManifestVersion: 2
+Bundle-Name: popper.js
+Bundle-SymbolicName: popperjs
+Bundle-Vendor: Jahia Solutions Group SA
+Bundle-Version: 1.16.1
+Created-By: Apache Maven Bundle Plugin
+Dynamic-ImportPackage: *
+Implementation-Title: popper.js
+Implementation-URL: http://www.jahia.com
+Implementation-Vendor: Jahia Solutions Group SA
+Implementation-Version: 1.16.1
+Import-Package: org.apache.naming.java,org.jahia.defaults.config.spring,
+ org.jahia.exceptions,org.jahia.services
+Jahia-Depends: default
+Jahia-Download-Sources-Available: true
+Jahia-GroupId: org.jahia.modules
+Jahia-Module-Type: module
+Jahia-Required-Version: 8.0.0.0
+Jahia-Signature: MCwCFF5doL8dxARxGwIu57/rmqv5s0XqAhRaLeEvp7BEcPPeMQS+SoK
+ 4NY2wiA==
+Jahia-Source-Control-Connection: scm:git:git@github.com:pvollenweider/po
+ pper.js.git
+Jahia-Source-Control-DeveloperConnection: scm:git:git@github.com:pvollen
+ weider/popper.js.git
+Jahia-Source-Control-Tag: popperjs-1.16.1
+Jahia-Source-Folders: /Users/pol/Desktop/popper.js
+Jahia-Static-Resources: /css,/icons,/images,/img,/javascript
+Provide-Capability: com.jahia.modules.dependencies;moduleIdentifier=popp
+ erjs,com.jahia.modules.dependencies;moduleIdentifier="popper.js"
+Require-Capability: com.jahia.services.content;filter:="(nodetypes=jnt:c
+ ontentFolder)",com.jahia.services.content;filter:="(nodetypes=jnt:folde
+ r)",com.jahia.services.content;filter:="(nodetypes=jnt:module)",com.jah
+ ia.services.content;filter:="(nodetypes=jnt:modules)",com.jahia.service
+ s.content;filter:="(nodetypes=jnt:portletFolder)",com.jahia.services.co
+ ntent;filter:="(nodetypes=jnt:templatesFolder)",com.jahia.modules.depen
+ dencies;filter:="(moduleIdentifier=default)"
+Specification-Title: popper.js
+Specification-Vendor: Jahia Solutions Group SA
+Specification-Version: 1.16.1
+Tool: Bnd-2.4.0.201411031534

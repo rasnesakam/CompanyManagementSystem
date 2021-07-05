@@ -1,0 +1,1 @@
+import * as dialogHandler from "./dialoghandler.js";

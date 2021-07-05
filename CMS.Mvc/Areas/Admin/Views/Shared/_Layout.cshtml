@@ -1,0 +1,80 @@
+﻿
+<html lang="tr">
+<!--begin::Head-->
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title> @ViewBag.Title | Kando </title>
+    <meta name="description" content="Updates and statistics" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="shortcut icon" href="@ViewBag.Icon"/>
+
+    @await Html.PartialAsync("_LayoutCssPartial")
+    @await RenderSectionAsync("Styles",false) 
+
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body id="kt_body"
+      class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
+
+
+    <!--begin::Main-->
+    @await Html.PartialAsync("_LayoutHeaderMobilePartial")
+
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            @await Html.PartialAsync("_LayoutAsidePartial")
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                @await Html.PartialAsync("_LayoutHeaderPartial")
+                <div class=" container vh-100">
+                    @RenderBody()
+                </div>
+                @await Html.PartialAsync("_LayoutFooterPartial")
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
+    @await Html.PartialAsync("_LayoutScrollTopPartial")
+
+    @await Html.PartialAsync("_LayoutUserPanelPartial")
+
+    <!--begin:Editing modals-->
+    <!--Custom Modals-->
+    <div class="modal fade" id="dialog-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-title" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dialog-title"></h5>
+                    <button type="button" class="btn btn-hover-danger" data-dismiss="modal" aria-label="Close">
+                        x
+                    </button>
+                </div>
+                <div class="modal-body" id="dialog-body">
+
+                    <!-- GONNA BE DYNAMIC -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @await Html.PartialAsync("_LayoutJsPartial")
+    @await RenderSectionAsync("Scripts",false)
+
+</body>
+<!--end::Body-->
+<!-- Mirrored from preview.keenthemes.com/metronic/demo1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Jul 2020 11:40:34 GMT -->
+
+</html>

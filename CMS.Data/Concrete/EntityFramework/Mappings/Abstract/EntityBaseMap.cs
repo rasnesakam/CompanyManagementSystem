@@ -21,7 +21,15 @@ namespace CMS.Data.Concrete.EntityFramework.Mappings.Abstract
             builder.Property(e => e.Id)
                 .ValueGeneratedOnAdd();
 
+            builder.Property(e => e.CreatedByName)
+                .HasMaxLength(25)
+                .IsRequired();
+
             builder.Property(e => e.CreateDate)
+                .IsRequired();
+
+            builder.Property(e => e.ModifiedByName)
+                .HasMaxLength(25)
                 .IsRequired();
 
             builder.Property(e => e.ModifiedDate)

@@ -10,3 +10,10 @@ C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.csproj
 C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\ref\CMS.Services.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Data.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Entities.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Shared.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Data.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Entities.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Services\bin\Debug\net5.0\CMS.Shared.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Services\obj\Debug\net5.0\CMS.Services.csproj.CopyComplete

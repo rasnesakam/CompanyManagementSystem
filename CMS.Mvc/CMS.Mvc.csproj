@@ -5,7 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Compile Remove="wwwroot\assets\js\popper\**" />
+    <Content Remove="wwwroot\assets\js\popper\**" />
+    <EmbeddedResource Remove="wwwroot\assets\js\popper\**" />
+    <None Remove="wwwroot\assets\js\popper\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CMS.Services\CMS.Services.csproj" />
   </ItemGroup>
 
 </Project>

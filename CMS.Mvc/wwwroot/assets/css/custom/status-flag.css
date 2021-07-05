@@ -1,0 +1,7 @@
+.status-flag{
+    width: 32px;
+    height:auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 5px; 
+}

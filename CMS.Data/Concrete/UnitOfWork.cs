@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.Concrete
 {
-    class UnitOfWork: IUnitOfWork
+    public class UnitOfWork: IUnitOfWork
     {
         private readonly CMSDbContext _context;
 
@@ -33,6 +33,11 @@ namespace CMS.Data.Concrete
         private EFStatusRepository _eFStatusRepository;
         private EFTagRepository _eFTagRepository;
         private EFUSerREpository _eFUSerREpository;
+
+        public UnitOfWork(CMSDbContext context)
+        {
+            _context = context;
+        }
 
         public IUserRepository Users => _eFUSerREpository ?? new EFUSerREpository(_context);
 
