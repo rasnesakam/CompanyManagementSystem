@@ -14,7 +14,7 @@ namespace CMS.Entities.Dtos
         [MaxLength(50, ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
         public string Name { get; set; }
 
-        [Display(Name = "Şirket Açıklaması")]
+        [Display(Name = "Şirket Hakkında")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(250, ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
         public string Description { get; set; }

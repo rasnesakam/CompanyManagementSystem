@@ -398,3 +398,7 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutUserPanelPartial.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Central.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Company.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Domain.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Mail.cshtml.g.cs

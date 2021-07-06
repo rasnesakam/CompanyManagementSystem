@@ -1,0 +1,304 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+@using CMS.Entities.Concrete
+@model CMS.Entities.Dtos.CompanyAddDto
+<!--begin::Content-->
+<form id="comp_form" enctype="multipart/form-data">
+
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <!--begin::Subheader-->
+        <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+            <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                <!--begin::Details-->
+                <div class="d-flex align-items-center flex-wrap mr-2">
+                    <!--begin::Title-->
+                    <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Yeni Şirket</h5>
+                    <!--end::Title-->
+                    <!--begin::Separator-->
+                    <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200">
+                    </div>
+                    <!--end::Separator-->
+                    <!--begin::Search Form-->
+                    <div class="d-flex align-items-center" id="kt_subheader_search">
+                        <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">Şirket bilgilerini girin ve kaydedin</span>
+                    </div>
+                    <!--end::Search Form-->
+                </div>
+                <!--end::Details-->
+                <!--begin::Toolbar-->
+                <div class="d-flex align-items-center">
+                    <!--begin::Button-->
+                    <a href="/content/" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">Geri</a>
+                    <!--end::Button-->
+                    <!--begin::Dropdown-->
+                    <div class="btn-group ml-2">
+                        <button type="submit" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base" id="save_company">Kaydet</button>
+
+                        <script src="/assets/js/custom/toastr.js"></script>
+                        <script>
+                            $('#comp_form').on('submit', function(e) {
+                                e.preventDefault();
+
+                                var fdata = new FormData(this);
+
+                                fdata.append("id", "null")
+
+                                $.ajax({
+                                    url: "/content/includes/add/add-company.php",
+                                    type: "POST",
+                                    data: fdata,
+                                    contentType: false,
+                                    processData: false,
+                                    success: function(data) {
+
+                                        var result = JSON.parse(data);
+                                        toastr.options = getToastrOptions('5000',()=>{});
+                                        var span = document.createElement("span");
+                                        var spanContainer = document.getElementById("kt_subheader_total")
+
+                                        if (result.code == 201) span.className = "text-info";
+
+                                        else if (result.code == 400) span.className = "text-warning";
+
+                                        else {
+                                            span.className = "text-danger"
+                                        }
+
+                                        span.textContent = result.message;
+                                        spanContainer.innerHTML = ""
+                                        spanContainer.appendChild(span);
+
+                                    }
+                                });
+
+                            });
+                        </script>
+
+                    </div>
+                    <!--end::Dropdown-->
+                </div>
+                <!--end::Toolbar-->
+            </div>
+        </div>
+        <!--end::Subheader-->
+        <!--begin::Entry-->
+        <div class="d-flex flex-column-fluid">
+            <!--begin::Container-->
+            <div class="container">
+                <!--begin::Card-->
+                <div class="card card-custom card-transparent">
+                    <div class="card-body p-0">
+                        <!--begin::Wizard-->
+                        <div class="wizard wizard-4" id="kt_wizard" data-wizard-state="step-first" data-wizard-clickable="true">
+                            <!--end::Wizard Nav-->
+                            <!--begin::Card-->
+                            <div class="card card-custom card-shadowless rounded-top-0">
+                                <!--begin::Body-->
+                                <div class="card-body p-0">
+                                    <div class="row justify-content-center py-8 px-8 py-lg-15 px-lg-10">
+                                        <div class="col-xl-12 col-xxl-10">
+                                            <!--begin::Wizard Form-->
+                                            <form class="form" id="kt_form">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-xl-9">
+                                                        <!--begin::Wizard Step 1-->
+                                                        <div class="my-5 step" data-wizard-type="step-content" data-wizard-state="current">
+                                                            <h5 class="text-dark font-weight-bold mb-10">
+                                                                Şirket Bilgileri
+                                                            </h5>
+                                                            <div asp-validation-summary="All" class="text-danger" id="validation-summary"></div>
+
+                                                            <!--begin::Group-->
+                                                            <!--Logo Girişi-->
+                                                            <div class="form-group row">
+                                                                <label class="col-xl-3 col-lg-3 col-form-label text-left">Şirket logosu*</label>
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <div class="image-input image-input-outline" id="kt_user_add_avatar">
+                                                                        <div class="image-input-wrapper" id="logo_view">
+                                                                            <script>
+                                                                                var imgsrc = "<?php echo $company->getIcon(); ?>"
+
+                                                                                if (imgsrc !== "") {
+                                                                                    var logo_view = document.getElementById("logo_view");
+                                                                                    logo_view.style.backgroundImage = "url(" + imgsrc + ")";
+                                                                                    var image = new Image();
+                                                                                    image.onload =
+                                                                                        function () {
+                                                                                            var rate = this.width / this.height;
+                                                                                            logo_view.style.height = "120px";
+                                                                                            logo_view.style.width = Math.floor(rate * 120) + "px";
+                                                                                        }
+                                                                                    image.src = imgsrc;
+                                                                                }
+                                                                            </script>
+                                                                        </div>
+                                                                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change logo">
+                                                                            <i class="fa fa-pen icon-sm text-muted"></i>
+                                                                            <input type="file" name="icon" id="company_logo" accept=".png, .jpg, .jpeg" />
+                                                                            <script>
+                                                                                $('#company_logo').on(
+                                                                                    'change',
+                                                                                    function () {
+                                                                                        var file = this.files[0];
+
+                                                                                        var reader = new FileReader();
+                                                                                        reader.onloadend =
+                                                                                            function () {
+                                                                                                var res = reader.result;
+
+                                                                                                $('#logo_view').css("background-image", "url(" + res + ")");
+
+                                                                                                var img = new Image();
+
+                                                                                                img.onload = function () {
+                                                                                                    var rate = this.width / this.height;
+
+                                                                                                    var logo_view = document.getElementById('logo_view');
+                                                                                                    logo_view.style.height = "120px";
+                                                                                                    logo_view.style.width = (Math.floor(rate * 120)) + "px"
+
+                                                                                                }
+                                                                                                img.src = res;
+
+                                                                                            }
+                                                                                        if (file) {
+                                                                                            reader.readAsDataURL(file);
+                                                                                        }
+
+
+                                                                                    })
+                                                                            </script>
+                                                                            <input type="hidden" name="company_logo_remove" id="company_logo_remove" />
+                                                                        </label>
+                                                                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Group-->
+                                                            <!--begin::Group::Şirket İsmi-->
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <label asp-for="Name"></label>
+                                                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                                                    <input asp-for="Name" class="form-control form-control-solid form-control-lg" />
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Group-->
+                                                            <!--begin::Group::Şirket Hakkında-->
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <label asp-for="Description"></label>
+                                                                    <span class="text-danger" asp-validation-for="Description"></span>
+                                                                    <input asp-for="Description" class="form-control form-control-solid form-control-lg" />
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Group-->
+                                                            <!--begin::Group::Adres-->
+                                                            <div class="form-group row">
+                                                                
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <label asp-for="BillAddress">Fatura Adresi*</label>
+                                                                    <span class="text-danger" asp-validation-for="BillAddress">asd</span>
+                                                                    <div id="comp_address_div">
+                                                                        <textarea asp-for="BillAddress" class="mb-4 mt-4 form-control form-control-solid form-control-lg"></textarea>
+                                                                        <script>
+                                                                            $('#address_area').on('input',
+                                                                                () => {
+                                                                                    var area = document.getElementById("address_area");
+
+                                                                                    area.style = "height: auto;";
+                                                                                    area.style = "height: " + area.scrollHeight + "px;";
+                                                                                });
+                                                                        </script>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <!--begin::Group::Vergi Numaralası-->
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <label asp-for="TaxNum"></label>
+                                                                    <span asp-validation-for="TaxNum" class="text-danger"></span>
+                                                                    <div id="contact-nums-container">
+                                                                        <div class="input-group input-group-solid input-group-lg" style="margin-bottom:10px;">
+                                                                            <input asp-for="TaxNum" class="form-control form-control-solid form-control-lg" />
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <!--begin::Group::İletişim Numaraları-->
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <div id="contact-nums-container">
+                                                                        <label class="col-xl-3 col-lg-3 col-form-label" asp-for="ContactNumber"></label>
+                                                                        <span class="text-danger" asp-validation-for="ContactNumber"></span>
+                                                                        <div class="input-group input-group-solid input-group-lg" style="margin-bottom:10px;">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="la la-phone"></i>
+                                                                                </span>
+                                                                            </div>
+                                                                            <input asp-for="ContactNumber" class="form-control form-control-solid form-control-lg" />
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Group-->
+                                                            <!--begin::Group-->
+                                                            <!--Şirket E Postaları-->
+                                                            <div class="form-group row">
+                                                                <div class="col-lg-9 col-xl-9">
+                                                                    <div id="mail-group-container">
+                                                                        <label class="col-xl-3 col-lg-3 col-form-label" asp-for="EMail"></label>
+                                                                        <span asp-validation-for="EMail"></span>
+                                                                        <div class="input-group input-group-solid input-group-lg">
+                                                                            <div class="input-group-prepend">
+                                                                                <span class="input-group-text">
+                                                                                    <i class="la la-at"></i>
+                                                                                </span>
+                                                                            </div>
+                                                                            <input class=" mt-2 mb-2 form-control form-control-solid form-control-lg" asp-for="EMail" />
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <!--end::Group-->
+
+                                                        </div>
+                                                        <!--end::Wizard Step 1-->
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!--end::Wizard Form-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                        <!--end::Wizard-->
+                    </div>
+                </div>
+                <!--end::Card-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Entry-->
+    </div>
+
+</form>

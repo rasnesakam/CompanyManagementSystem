@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+    
+}
+@using CMS.Entities.Concrete
+@model CMS.Entities.Dtos.CentralAddDto
+
+<div class="form-group">
+    <form asp-action="Central">
+
+            <input type="hidden" name="IsValid" value="@ViewData.ModelState.IsValid.ToString()" />
+            <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display:none"></div>
+
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <input class="form-control" asp-for="Description" />
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number"></label>
+                <input class="form-control" asp-for="Number" />
+                <span class="text-danger" asp-validation-for="Number"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyId"></label>
+                <select class="form-control">
+                    <option>ASLKDJASLKDJ</option>
+                    @foreach (Company c in (ICollection<Company>) ViewBag.Companies) { 
+                        <option value="@c.Id" >@c.Name</option>
+                    }
+                </select>
+                <span class="text-danger" asp-validation-for="CompanyId"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+    </form>
+</div>
