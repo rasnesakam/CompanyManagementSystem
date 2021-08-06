@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,10 +25,11 @@ namespace CMS.Entities.Dtos
         [MaxLength(250,ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
         public string BillAddress { get; set; }
 
-        [Display(Name = "Fatura Adresi")]
+        [Display(Name = "Fatura Numarası")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(10, ErrorMessage = "{0} alanı en fazla {1} rakamdan oluşmalıdır")]
-        public long TaxNum { get; set; }
+        [MinLength(10, ErrorMessage = "{0} alanı en az{1} rakamdan oluşmalıdır")]
+        public string TaxNum { get; set; }
 
         [Display(Name = "E Posta Adresi")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
@@ -37,11 +39,13 @@ namespace CMS.Entities.Dtos
         [Display(Name = "İletişim Numarası")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(10, ErrorMessage = "{0} alanı en fazla {1} rakamdan oluşmalıdır")]
-        public long ContactNumber { get; set; }
+        [MinLength(10, ErrorMessage = "{0} alanı en az {1} rakamdan oluşmalıdır")]
+        public string ContactNumber { get; set; }
+
+        public string Icon { get; set; }
 
         [Display(Name = "Şirket Logosu")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
-        [MaxLength(250, ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
-        public string Icon { get; set; }
+        public IFormFile IconFile { get; set; }
     }
 }

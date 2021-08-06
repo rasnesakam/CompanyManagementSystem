@@ -7,7 +7,7 @@
 @using CMS.Entities.Concrete
 @model CMS.Entities.Dtos.CompanyAddDto
 <!--begin::Content-->
-<form id="comp_form" enctype="multipart/form-data">
+<form asp-action="Company" enctype="multipart/form-data">
 
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
@@ -32,7 +32,7 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex align-items-center">
                     <!--begin::Button-->
-                    <a href="/content/" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">Geri</a>
+                    <a href="javascript: history.go(-1)" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">Geri</a>
                     <!--end::Button-->
                     <!--begin::Dropdown-->
                     <div class="btn-group ml-2">
@@ -115,12 +115,13 @@
                                                             <!--begin::Group-->
                                                             <!--Logo Girişi-->
                                                             <div class="form-group row">
-                                                                <label class="col-xl-3 col-lg-3 col-form-label text-left">Şirket logosu*</label>
+                                                                <label class="col-xl-3 col-lg-3 col-form-label text-left" asp-for="IconFile"></label>
+                                                                <span class="text-danger" asp-validation-for="IconFile"></span>
                                                                 <div class="col-lg-9 col-xl-9">
                                                                     <div class="image-input image-input-outline" id="kt_user_add_avatar">
                                                                         <div class="image-input-wrapper" id="logo_view">
                                                                             <script>
-                                                                                var imgsrc = "<?php echo $company->getIcon(); ?>"
+                                                                                var imgsrc = ""
 
                                                                                 if (imgsrc !== "") {
                                                                                     var logo_view = document.getElementById("logo_view");
@@ -138,7 +139,7 @@
                                                                         </div>
                                                                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change logo">
                                                                             <i class="fa fa-pen icon-sm text-muted"></i>
-                                                                            <input type="file" name="icon" id="company_logo" accept=".png, .jpg, .jpeg" />
+                                                                            <input asp-for="IconFile" id="company_logo" />
                                                                             <script>
                                                                                 $('#company_logo').on(
                                                                                     'change',

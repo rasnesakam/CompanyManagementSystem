@@ -3,7 +3,7 @@
 *@
 @using CMS.Entities.Concrete
 @using CMS.Mvc.Areas.Admin.Models
-@model MainPageModel
+@model CompanyListModel
 
 
 <!--begin::Row::DC-->
@@ -35,7 +35,7 @@
                         <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" aria-labelledby="dropdownmenu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
 
                             <li>
-                                <button class="dropdown-item dialog-link" data-href="/Admin/Add/Central" data-title="Yeni Santral Ekle">Yeni Ekle</button>
+                                <button class="dropdown-item dialog-link" data-href="@Url.Action("Central","Add")" data-title="Yeni Santral Ekle">Yeni Ekle</button>
                             </li>
 
                         </ul>
@@ -61,11 +61,12 @@
 
                     <tbody>
                         
-                        @foreach (Central c in Model.Centrals.Data.Centrals)
+                        @foreach (Company cmp in Model.Companies.Data.Companies)
+                            foreach (Central c in cmp.Centrals)
                         {
                             <tr>
-                                <td><?php echo $central['number']; ?></td>
-                                <td><?php echo $central['desc']; ?></td>
+                                <td>@c.Name</td>
+                                <td>@c.Description</td>
                                 <td>
                                     <div class="btn-group dropleft" data-toggle="tooltip" title="Detay">
 
@@ -179,7 +180,7 @@
                         <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" aria-labelledby="dropdownmenu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
 
                             <li>
-                                <button class="dropdown-item dialog-link" data-href="/content/includes/add.php?type=domain" data-title="Yeni Domain Ekle">Yeni Ekle</button>
+                                <button class="dropdown-item dialog-link" data-href="@Url.Action("Domain","Add")" data-title="Yeni Domain Ekle">Yeni Ekle</button>
                             </li>
 
                         </ul>
@@ -223,7 +224,8 @@
                             </thead>
                             <tbody>
                                 
-                                @foreach (Domain d in Model.Domains.Data.Domains)
+                                @foreach (Company c in Model.Companies.Data.Companies)
+                                    foreach (Domain d in c.Domains)
                                 {
                                 <tr>
                                     <td>
@@ -376,7 +378,7 @@
                         <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" aria-labelledby="dropdownmenu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
 
                             <li>
-                                <button class="dropdown-item dialog-link" data-href="/content/includes/add.php?type=note" data-title="Yeni Not Ekle">Yeni Ekle</button>
+                                <button class="dropdown-item dialog-link" data-href="@Url.Action("Note","Add")" data-title="Yeni Not Ekle">Yeni Ekle</button>
                             </li>
 
                         </ul>
@@ -386,23 +388,24 @@
 
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body pt-2">
                 <div class="card card-custom">
                     <table class="table table-borderless text-center table-vertical-center" id="noteTable">
                         <thead>
                             <tr class="text-center">
-                                <th scope="col">Not Açıklaması</th>
+                                <th scope="col">Not İsmi</th>
                                 <th scope="col">Son düzenleme tarihi</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody class="text-center">
+                        <tbody>
                             
-                            @foreach(Note n in new List<Note>())
+                            @foreach (Company c in Model.Companies.Data.Companies)
+                                foreach (Note n in c.Notes)
                             {
                             <tr>
-                                <td><?php echo $note['desc']; ?></td>
-                                <td><?php echo $note['date']; ?></td>
+                                <td>@n.Name</td>
+                                <td>@n.ModifiedDate</td>
                                 <td>
                                     <div class="btn-group dropleft" data-toggle="tooltip" title="Detay">
 
@@ -512,7 +515,7 @@
                         <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" aria-labelledby="dropdownmenu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
 
                             <li>
-                                <button class="dropdown-item dialog-link" data-href="/content/includes/add.php?type=mail" data-title="Yeni E posta Adresi Ekle">Yeni Ekle</button>
+                                <button class="dropdown-item dialog-link" data-href="@Url.Action("Mail","Add")" data-title="Yeni E posta Adresi Ekle">Yeni Ekle</button>
                             </li>
 
                         </ul>
@@ -538,7 +541,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (Mail m in Model.Mails.Data.Mails)
+                            @foreach (Company c in Model.Companies.Data.Companies)
+                                foreach (Mail m in c.Mails)
+
                             {
 
                             <tr>

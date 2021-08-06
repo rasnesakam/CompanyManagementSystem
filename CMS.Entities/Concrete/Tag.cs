@@ -7,7 +7,7 @@ using CMS.Entities.Abstract;
 
 namespace CMS.Entities.Concrete
 {
-    public class Tag: PrimitiveEntity
+    public class Tag: ColoredEntity
     {
         public ICollection<ProjectTag> ProjectTags { get; set; }
         public ICollection<MissionTag> MissionTags { get; set; }

@@ -13,7 +13,7 @@ namespace CMS.Entities.Dtos
         [Display(Name = "Santral Numarası")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(10,ErrorMessage = "{0} alanı en fazla {1} rakamdan oluşmalıdır")]
-        public long Number{ get; set; }
+        public string Number{ get; set; }
 
         [Display(Name = "Santral adı")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
@@ -27,6 +27,6 @@ namespace CMS.Entities.Dtos
 
         [Display(Name = "Şirket")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
-        public int CompanyId { get; set; }
+        public int ParentId { get; set; }
     }
 }

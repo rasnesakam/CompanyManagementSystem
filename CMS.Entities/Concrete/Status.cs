@@ -7,7 +7,7 @@ using CMS.Entities.Abstract;
 
 namespace CMS.Entities.Concrete
 {
-    public class Status: PrimitiveEntity
+    public class Status: ColoredEntity
     {
         public ICollection<Project> Projects { get; set; }
         public ICollection<Mission> Missions { get; set; }

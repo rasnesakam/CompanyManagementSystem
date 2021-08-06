@@ -29,7 +29,9 @@ namespace CMS.Services.Concrete
         {
             var company = _mapper.Map<Company>(companyAddDto);
             company.CreatedByName = userName;
+            company.ModifiedByName = userName;
             company.CreateDate = DateTime.Now;
+            company.ModifiedDate = DateTime.Now;
             var newCompany = await _unitOfWork.Companies.AddAsync(company);
             await _unitOfWork.SaveAsync();
             return new DataResult<CompanyDto>(ResultStatus.Success, new CompanyDto
@@ -48,6 +50,7 @@ namespace CMS.Services.Concrete
                 company.ModifiedByName = userName;
                 company.ModifiedDate = DateTime.Now;
                 await _unitOfWork.Companies.UpdateAsync(company);
+                await _unitOfWork.SaveAsync();
                 return new Result(ResultStatus.Success, "Şirket başarıyla silindi. İşleminizi geri almak için lütfen çöp kutusuna göz atın");
             }
             return new Result(ResultStatus.Error, "Şirket silinirken bir hata oluştu.");
@@ -55,7 +58,8 @@ namespace CMS.Services.Concrete
 
         public async Task<IDataResult<CompanyDto>> Get(int companyId)
         {
-            var company = await _unitOfWork.Companies.GetAsync(c => c.Id == companyId);
+            var company = await _unitOfWork.Companies.GetAsync(c => c.Id == companyId,
+                c=> c.Domains, c => c.Centrals, c => c.Mails, c => c.Reminders, c => c.Notes, c=> c.Users, c => c.Domains,c=> c.Projects);
             if (company != null)
             {
                 return new DataResult<CompanyDto>(ResultStatus.Success, new CompanyDto
@@ -74,7 +78,7 @@ namespace CMS.Services.Concrete
 
         public async Task<IDataResult<CompanyListDto>> GetAll()
         {
-            var companies = await _unitOfWork.Companies.GetAllAsync(null);
+            var companies = await _unitOfWork.Companies.GetAllAsync(null, c => c.Domains, c => c.Centrals, c => c.Mails, c => c.Reminders, c => c.Notes, c => c.Users, c => c.Domains, c => c.Projects);
             if (companies != null)
             {
                 return new DataResult<CompanyListDto>(ResultStatus.Success, new CompanyListDto

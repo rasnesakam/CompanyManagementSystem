@@ -21,6 +21,6 @@ namespace CMS.Entities.Dtos
 
         [Display(Name = "Şirket")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
-        public int CompanyId { get; set; }
+        public int ParentId { get; set; }
     }
 }

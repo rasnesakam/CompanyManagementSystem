@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
 {
-    public class TagMap: PrimitiveEntityMap<Tag>
+    public class TagMap: ColoredEntityMap<Tag>
     {
         public new void Configure(EntityTypeBuilder<Tag> builder)
         {

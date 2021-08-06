@@ -56,7 +56,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCor
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Http.Connections.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Http.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Http.Extensions.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.HttpOverrides.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.HttpsPolicy.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Identity.dll
@@ -139,7 +138,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extension
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Options.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Primitives.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.WebEncoders.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.JSInterop.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Net.Http.Headers.dll
@@ -197,7 +195,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.FileSyste
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.FileSystem.Watcher.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.IsolatedStorage.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.MemoryMappedFiles.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.Pipelines.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.Pipes.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.IO.UnmanagedMemoryStream.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\System.Linq.dll
@@ -399,6 +396,17 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Central.cshtml.g.cs
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Company.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Domain.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Mail.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Add.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Index.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_CompanyListView.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Profile.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Note.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Project.cshtml.g.cs

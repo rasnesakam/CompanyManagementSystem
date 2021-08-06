@@ -30,7 +30,9 @@ namespace CMS.Services.Concrete
         {
             var mail = _mapper.Map<Mail>(mailAddDto);
             mail.CreatedByName = userName;
+            mail.ModifiedByName = userName;
             mail.CreateDate = DateTime.Now;
+            mail.ModifiedDate = DateTime.Now;
             var newMail = await _unitOfWork.Mails.AddAsync(mail);
             await _unitOfWork.SaveAsync();
             return new DataResult<MailDto>(ResultStatus.Success, new MailDto
@@ -155,7 +157,7 @@ namespace CMS.Services.Concrete
             mail.ModifiedDate = DateTime.Now;
 
             var newMail = await _unitOfWork.Mails.UpdateAsync(mail);
-
+            await _unitOfWork.SaveAsync();
             return new DataResult<MailDto>(ResultStatus.Success, message: "E posta başarıyla güncellendi", data: new MailDto
             {
                 Mail = newMail,

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
 {
-    public class StatusMap: PrimitiveEntityMap<Status>
+    public class StatusMap: ColoredEntityMap<Status>
     {
         public new void Configure(EntityTypeBuilder<Status> builder)
         {

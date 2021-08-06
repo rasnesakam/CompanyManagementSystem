@@ -29,7 +29,11 @@ namespace CMS.Services.Concrete
         {
             var central = _mapper.Map<Central>(centralAddDto);
             central.CreatedByName = userName;
-            await _unitOfWork.Centrals.AddAsync(central).ContinueWith(t =>_unitOfWork.SaveAsync());
+            central.ModifiedByName = userName;
+            central.CreateDate = DateTime.Now;
+            central.ModifiedDate = DateTime.Now;
+            await _unitOfWork.Centrals.AddAsync(central);
+            await _unitOfWork.SaveAsync();
             return new DataResult<CentralDto>(ResultStatus.Success, message: $"\"{central.Name}\" adlı santral başarıyla eklendi", data: new CentralDto
             {
                 Central = central,

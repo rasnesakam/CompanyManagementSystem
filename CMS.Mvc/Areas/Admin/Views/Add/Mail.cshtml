@@ -3,44 +3,35 @@
 *@
 @{
     Layout = null;
-    
+
 }
 @using CMS.Entities.Concrete
-@model CMS.Entities.Dtos.CentralAddDto
+@model CMS.Entities.Dtos.MailAddDto
 
 <div class="form-group">
-    <form asp-action="Central">
+    <form asp-action="Central" id="ajaxFormSender" data-url="@Url.Action("Mail","Add")">
 
-            <input type="hidden" name="IsValid" value="@ViewData.ModelState.IsValid.ToString()" />
-            <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display:none"></div>
+        <input type="hidden" name="IsValid" value="@ViewData.ModelState.IsValid.ToString()" />
+        <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display:none"></div>
 
-            <div class="form-group">
-                <label asp-for="Name"></label>
-                <input class="form-control" asp-for="Name" />
-                <span class="text-danger" asp-validation-for="Name"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <input class="form-control" asp-for="Description" />
-                <span class="text-danger" asp-validation-for="Description"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Number"></label>
-                <input class="form-control" asp-for="Number" />
-                <span class="text-danger" asp-validation-for="Number"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CompanyId"></label>
-                <select class="form-control">
-                    <option>ASLKDJASLKDJ</option>
-                    @foreach (Company c in (ICollection<Company>) ViewBag.Companies) { 
-                        <option value="@c.Id" >@c.Name</option>
-                    }
-                </select>
-                <span class="text-danger" asp-validation-for="CompanyId"></span>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Kaydet</button>
-            </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentId"></label>
+            <span class="text-danger" asp-validation-for="ParentId"></span>
+            <select class="form-control" asp-for="ParentId" asp-items="@(new SelectList(ViewBag.Companies,"Id","Name"))"></select>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
     </form>
+    <script src="~/assets/js/custom/ajax-form-sender.js"></script>
 </div>

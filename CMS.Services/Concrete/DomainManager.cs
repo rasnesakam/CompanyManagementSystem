@@ -29,7 +29,9 @@ namespace CMS.Services.Concrete
         {
             var domain = _mapper.Map<Domain>(domainAddDto);
             domain.CreatedByName = userName;
+            domain.ModifiedByName = userName;
             domain.CreateDate= DateTime.Now;
+            domain.ModifiedDate= DateTime.Now;
             var addedDomain = await _unitOfWork.Domains.AddAsync(domain);
             await _unitOfWork.SaveAsync();
             return new DataResult<DomainDto>(ResultStatus.Success, new DomainDto
