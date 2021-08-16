@@ -36,5 +36,7 @@ namespace CMS.Entities.Dtos
         [Display(Name = "Proje Etiketleri")]
         public int[] Tags { get; set; }
 
+        [Required]
+        public int CompanyId { get; set; }
     }
 }

@@ -45,7 +45,7 @@ namespace CMS.Data.Concrete
 
         public ITagRepository Tags => _eFTagRepository ?? new EFTagRepository(_context);
 
-        public IStatusRepository Status => _eFStatusRepository ?? new EFStatusRepository(_context);
+        public IStatusRepository Statuses => _eFStatusRepository ?? new EFStatusRepository(_context);
 
         public IReminderRepository Reminders => _eFReminderRepository ?? new EFReminderRepository(_context);
 

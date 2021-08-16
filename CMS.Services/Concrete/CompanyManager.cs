@@ -9,6 +9,7 @@ using CMS.Shared.Utilities.Results.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -76,9 +77,9 @@ namespace CMS.Services.Concrete
             });
         }
 
-        public async Task<IDataResult<CompanyListDto>> GetAll()
+        public async Task<IDataResult<CompanyListDto>> GetAll(Expression<Func<Company, bool>> predicate = null)
         {
-            var companies = await _unitOfWork.Companies.GetAllAsync(null, c => c.Domains, c => c.Centrals, c => c.Mails, c => c.Reminders, c => c.Notes, c => c.Users, c => c.Domains, c => c.Projects);
+            var companies = await _unitOfWork.Companies.GetAllAsync(predicate, c => c.Domains, c => c.Centrals, c => c.Mails, c => c.Reminders, c => c.Notes, c => c.Users, c => c.Domains, c => c.Projects);
             if (companies != null)
             {
                 return new DataResult<CompanyListDto>(ResultStatus.Success, new CompanyListDto
@@ -94,6 +95,8 @@ namespace CMS.Services.Concrete
                 Message = "Aranan şirketler bulunamadı"
             });
         }
+
+        
 
         public async Task<IDataResult<CompanyListDto>> GetAllByActiveAndNonDeleted()
         {

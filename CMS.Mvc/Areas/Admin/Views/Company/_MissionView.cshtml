@@ -1,0 +1,121 @@
+﻿@using CMS.Entities.Concrete
+@model CMS.Entities.Concrete.Mission
+
+    <li id="mission-<? echo $mission->getId() ?>" class=" task-list-item done" :class="parentClass">
+
+        <!-- Görev etiketleri -->
+        <div class="task-icon">
+            <div class="btn-group dropdown">
+
+                <button class="btn btn-sm-toggle" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                    <i class="fa fa-tags"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
+                    @foreach(MissionTag mt in Model.MissionTags)
+                    {
+                        Tag t = mt.Entity2;
+                        <li>#@t.Name</li>
+                    }
+                        
+                </ul>
+            </div>
+        </div>
+        <div class="task-status">
+            <!-- Görev düzenleme Şeysi -->
+            <a class="list-toggle-container dialog-link" data-title="Görevi Düzenle" data-href="@Url.Action("Mission","Add",new { id = Model.Id })">
+                <i class="fas fa-edit"></i>
+            </a>
+            <!-- Yorumları açma kapama şeysi -->
+            <a id="comments-toggle-<? echo $mission->getId ?>" class="list-toggle-container" data-toggle="collapse" data-parent="#mission-@Model.Id" href="#comments-@Model.Id" aria-expanded="false">
+                <i class="fa fa-comment"></i>
+            </a>
+            <!-- Görevi silme butonu -->
+            <a class="pending dialog-link" data-title="Görev silinecek" data-href="@Url.Action("Mission","Delete",new { id = Model.Id })">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+        <!-- Görev içeriği -->
+        <div class="task-content d-flex flex-row">
+            <div class="status-flag" style="background-color:#@Model.Status.ColorHex"></div>
+            <div>
+                <h4 class="uppercase">
+                    <a>@Model.Name</a>
+                </h4>
+                <p>@Model.Description</p>
+            </div>
+        </div>
+        <!-- Yorumlar Bölmesi -->
+        <div class="task-list panel-collapse collapse" id="comments-<? echo $mission->getId() ?>">
+            <div class="container">
+                <div class="row text-lg-center text-uppercase font-weight-boldest border border-1">
+                    <div class="col-lg-12">
+                        <span class="text-darkest mr-3">
+                            @Model.Name
+                        </span>
+                        <span class="text-dark">için yapılan yorumlar</span>
+                    </div>
+                </div>
+                <div class="row border border-1">
+
+                    <div class="col-lg-12">
+
+                        <!-- See comments -->
+                        <div class="flex-column mb-10" id="comments-<? echo $mission->getId() ?>">
+                            
+                            @if(Model.MissionComments != null) 
+                                @foreach (MissionComment comment in Model.MissionComments) {
+                                    @await Html.PartialAsync("_CommentView", comment);
+                            }
+                            else {
+
+                            <span class="text-center">Bu görev için yorum yok</span>
+                            }
+
+                            ?>
+                        </div>
+                        <!-- Make Comment -->
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <div class="form-group" id="comment-<? echo $mission->getID() ?>">
+                                    <!-- Begin::Media files -->
+                                    <div id="media-files-<? echo $mission->getId() ?>" class="task-list panel-collapse collapse">
+                                        <div id="dropzone-<? echo $mission->getId() ?>" class="cdropzone dropzone dropzone-default" id="dz-<? echo $mission->getId() ?>">
+                                            <div class="dropzone-msg dz-message needsclick">
+                                                <h3 class="dropzone-msg-title">Dosyaları eklemek için sürükleyin</h3>
+                                                <span class="dropzone-msg-desc">Ve ya buraya dokunun</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- End::Media files -->
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- send button -->
+                                            <button id="send-<? echo $mission->getId() ?>" type="button" class="btn-sbmt btn btn-hover-secondary pull-right">
+                                                <i class="fa fa-paper-plane"></i>
+                                            </button>
+                                            <!-- media files toggler -->
+                                            <button type="button" class=" list-toggle-container btn btn-hover-secondary pull-right" data-toggle="collapse" data-parent="#comment-<? echo $mission->getId() ?>" href="#media-files-<? echo $mission->getId() ?>" aria-expanded="false">
+                                                <i class="fa fa-paperclip"></i>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                    <!-- Comment area -->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <textarea class="form-control border-0 p-1 w-100 h-75px" id="comment-text<?php echo $mission->getId() ?>" placeholder="<?php echo strtoupper($_SESSION['username']) . " olarak yorum yap" ?>"></textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>

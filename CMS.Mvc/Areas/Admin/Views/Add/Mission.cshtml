@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+    var id = ViewBag.ProjectId;
+}
+@using CMS.Entities.Dtos
+@model MissionAddDto
+
+<div class="form-group p-4">
+
+    <form asp-action="Mission" id="ajaxFormSender" data-url="@Url.Action("Mission","Add")">
+
+        <div class="row mb-3">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="StartDate"></label>
+            <div class="input-group">
+                <div class="input-group date date-start">
+                    <input asp-for="StartDate" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+            <span class="text-danger" asp-validation-for="StartDate"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="FinalDate"></label>
+            <div class="input-group">
+                <div class="input-group date date-end">
+                    <input asp-for="FinalDate" class="form-control" id="final_date" autocomplete="off">
+                </div>
+            </div>
+            <span class="text-danger" asp-validation-for="FinalDate"></span>
+        </div>
+        <div class="row mb-3">
+            <label asp-for="StatusId"> </label>
+            <div class="input-group mt-2 mb-2 w-100">
+                <select class="selectpicker" asp-for="StatusId" asp-items="@(new SelectList(ViewBag.Statuses,"Id","Name"))">
+                </select>
+            </div>
+            <span class="text-danger" asp-validation-for="StatusId"></span>
+        </div>
+
+        
+        <div class="row mb-3">
+            <label asp-for="Tags"> </label>
+            <div class="input-group mt-2 mb-2 w-100">
+                <select id="tags" class="selectpicker" data-width="100%" multiple data-actions-box="true" asp-items="@(new SelectList(ViewBag.Tags,"Id","Name"))">
+                </select>
+            </div>
+            <span class="text-danger" asp-validation-for="Tags"></span>
+            <p>
+                <i class="fa fa-question-circle icon-sm text-info"></i>
+                <span class="text-muted text-sm-center"> Etiketler, projenizi daha hızlı bulmanızı sağlar</span>
+            </p>
+        </div>
+        <div class="row">
+            <input asp-for="ProjectId" type="hidden" value="@(ViewBag.ProjectId != null ? ViewBag.ProjectId: Model.ProjectId)" />
+            <input type="submit" class="btn btn-hover-primary" value="Ekle">
+        </div>
+        <script>
+            $('.selectpicker').selectpicker('show');
+        </script>
+    </form>
+    <script src="~/assets/js/custom/ajax-form-sender.js"></script>
+</div>

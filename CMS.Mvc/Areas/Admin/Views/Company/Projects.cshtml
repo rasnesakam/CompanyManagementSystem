@@ -1,0 +1,66 @@
+﻿@using CMS.Entities.Concrete
+@model CMS.Mvc.Areas.Admin.Models.CompanyModel
+
+@section Styles{
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" />
+    <link rel="stylesheet" href="~/assets/plugins/simple-line-icons/simple-line-icons.min.css" />
+    <link rel="stylesheet" href="~/assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css" />
+    <link rel="stylesheet" href="~/assets/css/components-rounded.min.css" />
+    <link rel="stylesheet" href="~/assets/css/custom/status-flag.css" />
+}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <div class="mt-element-list">
+                <!-- Şirket projeleri -->
+                <div class="mt-list-head list-todo red">
+                    <div class="list-head-title-container">
+                        <h3 class="list-title">
+                            @Model.Company.Name
+                        </h3>
+                        <div class="list-head-count">
+                            <div class="list-head-count-item text-center">
+                                @* durumlar ve durumlara ait görevler *@
+                                <span class="p-1 m-1 bg-light text-dark uppercase"> DURUMLAR  </span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Project -->
+                    <a href="javascript:;">
+                        <div id="addProject" class="list-count pull-right red-mint h-100 dialog-link" data-href="@Url.Action("Project","Add",new { compId = Model.Company.Id })" data-title="Yeni Proje olluştur">
+                            <i class="fa fa-plus  align-center"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="mt-list-container list-todo" id="accordion1" role="tablist" aria-multiselectable="true">
+                    <div class="list-todo-line"></div>
+
+                    <ul>
+                        @foreach (Project p in Model.Company.Projects)
+                            @await Html.PartialAsync("_ProjectView", p)
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Entry-->
+</div>
+
+@section Scripts{
+
+    <script src="~/assets/plugins/jQuery-slimScroll-1.3.8/jquery.slimscroll.min.js"></script>
+    <script src="http://malsup.github.io/jquery.blockUI.js"></script>
+    <script src="~/assets/plugins/js.cookie.min.js"></script>
+    <script src="~/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="~/assets/js/pages/crud/forms/widgets/bootstrap-selectc3e8.js"></script>
+    <script src="~/assets/popper-js/popper.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+
+}

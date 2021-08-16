@@ -1,0 +1,33 @@
+﻿
+@using CMS.Entities.Concrete
+@model Status
+
+<li class="list-group-item m-4">
+    <div class="d-flex justify-content-between state">
+        <!-- names & stuffs -->
+        <div class="d-flex flex-row justify-content-start">
+            <div class="status-flag" style="background-color:@Model.ColorHex"></div>
+            <div class="d-flex flex-column justify-content-start">
+                <p class="h2 font-weight-bolder">@Model.Name</p>
+                <p class="text-muted">@Model.Description</p>
+            </div>
+        </div>
+        <!-- control things -->
+        <div class="d-flex justify-content-center">
+            <a data-href="@Url.Action("Status","Edit",new { id = Model.Id })" data-title="Durumu Düzenle" class="m-2 btn btn-sm my-auto dialog-link assds">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="m-2 my-auto btn btn-sm dialog-link" data-href="@Url.Action("Status","Delete",new { id = Model.Id })" data-title="Durumu Düzenle">
+                <i class="fa fa-trash"></i>
+            </a>
+        </div>
+    </div>
+
+    @*
+        <div class="col-11 mx-auto">
+            <ul class="list-group list-group-flush">
+                <!-- Alt durumlar alanı Uygulanmadı -->
+            </ul>
+        </div>
+    *@
+</li>

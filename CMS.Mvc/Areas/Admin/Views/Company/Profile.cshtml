@@ -116,7 +116,7 @@
                                                     <!--begin::Şirket Eylemleri-->
                                                     <div class="my-lg-0 my-1">
                                                         <!--Bilgileri düzenleme-->
-                                                        <a href="@Url.Action("Add","Company",new { id=Model.Company.Id })" class="btn btn-sm btn-hover-secondary" data-toggle="tooltip" title="Bilgileri düzenle">
+                                                        <a href="@Url.Action("Edit","Company",new { id=Model.Company.Id })" class="btn btn-sm btn-hover-secondary" data-toggle="tooltip" title="Bilgileri düzenle">
                                                             <span class="svg-icon svg-icon-primary svg-icon-2x">
                                                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Communication/Write.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -335,7 +335,7 @@
                                                                                         <!-- Öge düzenleme -->
                                                                                         <li class="navi-item">
 
-                                                                                            <a class="navi-link dialog-link" data-href="@Url.Action("Domain","Add",new { id = d.Id})" data-title="Domain Adresini Düzenle">
+                                                                                            <a class="navi-link dialog-link" data-href="@Url.Action("Domain","Edit",new { id = d.Id})" data-title="Domain Adresini Düzenle">
                                                                                                 <span class="navi-icon svg-icon svg-icon-primary svg-icon-sm">
                                                                                                     <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Design/Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -462,7 +462,7 @@
                                                                                     <li class="navi-item">
 
                                                                                         <!-- Öge düzenleme -->
-                                                                                        <a class="navi-link dialog-link" data-href="@Url.Action("Central","Add",new { id = c.Id})" data-title="Santrali Düzenle">
+                                                                                        <a class="navi-link dialog-link" data-href="@Url.Action("Central","Edit",new { id = c.Id})" data-title="Santrali Düzenle">
                                                                                             <span class="navi-icon svg-icon svg-icon-primary svg-icon-sm">
                                                                                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Design/Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -619,7 +619,7 @@
                                                                                 <!-- Öge düzenleme -->
                                                                                 <li class="navi-item">
 
-                                                                                    <a class="navi-link dialog-link" data-href="@Url.Action("Reminder","Add",new { id = r.Id})" data-title="Hatırlatmayı düzenle">
+                                                                                    <a class="navi-link dialog-link" data-href="@Url.Action("Reminder","Edit",new { id = r.Id})" data-title="Hatırlatmayı düzenle">
                                                                                         <span class="navi-icon svg-icon svg-icon-primary svg-icon-sm">
                                                                                             <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Design/Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -767,7 +767,7 @@
                                                                                 <li class="navi-item">
 
                                                                                     <!-- Öge düzenleme -->
-                                                                                    <a class="navi-link dialog-link" data-href="@Url.Action("Note","Add",new { id = n.Id})" data-toggle="modal" data-target="#ednotes">
+                                                                                    <a class="navi-link dialog-link" data-href="@Url.Action("Note","Edit",new { id = n.Id})" data-toggle="modal" data-target="#ednotes">
                                                                                         <span class="navi-icon svg-icon svg-icon-primary svg-icon-sm">
                                                                                             <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Design/Edit.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -830,7 +830,7 @@
                                                 <div class="card-header border-0 pt-5">
 
                                                     <h3 class="card-title align-items-start flex-column">
-                                                        <a href="@Url.Action("Projectts","Company",new { id = Model.Company.Id})" class="btn btn-hover-primary">
+                                                        <a href="@Url.Action("Projects","Company",new { id = Model.Company.Id})" class="btn btn-hover-primary">
                                                             <span class="card-label font-weight-bolder text-dark">
                                                                 Projeler
                                                             </span>
@@ -905,7 +905,7 @@
                                                                                 <!-- Öge düzenleme -->
                                                                                 <li class="navi-item">
 
-                                                                                    <a class="navi-link dialog-link " data-href="@Url.Action("Project","Add",new { id=p.Id })" data-title="Projeyi Düzenle">
+                                                                                    <a class="navi-link dialog-link " data-href="@Url.Action("Project","Edit",new { id=p.Id })" data-title="Projeyi Düzenle">
                                                                                         <span class="navi-icon svg-icon svg-icon-primary svg-icon-sm">
                                                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -1034,7 +1034,7 @@
 
                                                                             <!-- Öge düzenleme -->
                                                                             <li class="navi-item">
-                                                                                <a class="navi-link dialog-link" data-href="@Url.Action("Mission","Add",new { id = m.Id})">
+                                                                                <a class="navi-link dialog-link" data-href="@Url.Action("Mission","Edit",new { id = m.Id})">
                                                                                     <span class="navi-icon svg-icon svg-icon-primary svg-icon-sm">
                                                                                         <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Design/Edit.svg-->
                                                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1108,6 +1108,6 @@
     @section Scripts{ 
         <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-        <script src="/assets/js/custom/datatable-profile.js"></script>
+        <script src="~/assets/js/custom/datatable-profile.js"></script>
     }
 }

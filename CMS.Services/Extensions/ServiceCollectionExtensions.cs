@@ -23,6 +23,10 @@ namespace CMS.Services.Extensions
             serviceCollection.AddScoped<IDomainService, DomainManager>();
             serviceCollection.AddScoped<IMailService, MailManager>();
             serviceCollection.AddScoped<INoteService, NoteManager>();
+            serviceCollection.AddScoped<IProjectService, ProjectManager>();
+            serviceCollection.AddScoped<IStatusService, StatusManager>();
+            serviceCollection.AddScoped<ITagService, TagManager>();
+            serviceCollection.AddScoped<IMissionService, MissionManager>();
             return serviceCollection;
         }
     }

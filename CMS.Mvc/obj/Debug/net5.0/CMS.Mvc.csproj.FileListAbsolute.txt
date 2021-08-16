@@ -410,3 +410,14 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Note.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Project.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Projects.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_CommentView.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_MissionView.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_ProjectView.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\Statuses.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\AddStatus.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\AddTag.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\Tags.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\_TagPartialView.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\_StatusPartialView.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Mission.cshtml.g.cs

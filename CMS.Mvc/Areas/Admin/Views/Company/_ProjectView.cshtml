@@ -1,0 +1,71 @@
+﻿
+@using CMS.Entities.Concrete
+@model CMS.Entities.Concrete.Project
+
+    <li class="mt-list-item">
+        <div class="list-todo-icon bg-white">
+            <i class="fa fa-database" style="color:#@(Model.Status != null ? Model.Status.ColorHex : "343a40")" data-toggle="tooltip" data-placement="bottom" title="@(Model.Status != null ? Model.Status.Name : "Durum bilinmiyor")"></i>
+        </div>
+        <div class="list-todo-item dark">
+            <a class="list-toggle-container" data-toggle="collapse" data-parent="#accordion1" href="#missions-@Model.Id" aria-expanded="false">
+                <div class="list-toggle done uppercase">
+
+                    <!-- Proje isim ve durumu -->
+                    <div class="list-toggle-title bold">@Model.Name</div>
+
+
+                    <!-- Görev sayısı -->
+                    <span class=" mr-1 ml-1 my-auto p-1 text-dark bg-light pull-right">@(Model.Missions != null ? Model.Missions.Count : 0) adet görev</span>
+
+                </div>
+
+            </a>
+            <div class="task-list panel-collapse collapse" id="missions-@Model.Id">
+                <ul>
+                    <!-- Görevler -->
+                    @if(Model.Missions != null) {
+                        foreach(Mission m in Model.Missions)
+                        {
+                            @await Html.PartialAsync("_MissionView", m);
+                        }
+                    }
+                    else {
+                    <span class="text-center">Bu proje için görev yok</span>
+                    
+                    }
+
+
+
+                </ul>
+
+                <!-- ADD and DELETE missions in project -->
+                <div class="task-footer bg-grey" style="padding: 0px;">
+                    <div class="row">
+                        <!-- Remove project -->
+                        <div class="col-4">
+                            <a class="task-trash btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@Url.Action("Project","Delete",new { id = Model.Id })" data-title="Proje Silme" data-toggle="tooltip" data-placement="top" title="Projeyi sil">
+                                <i class="fa fa-trash"></i>
+                            </a>
+
+                        </div>
+
+                        <!-- Edit project -->
+                        <div class="col-4">
+                            <a class="task-trash btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@Url.Action("Project","Add",new { id = Model.Id })" data-title="Proje Düzenle" data-toggle="tooltip" data-placement="top" title="Projeyi Düzenle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+
+                        </div>
+
+                        <!-- Add mission to project -->
+                        <div class="col-4">
+                            <a class="task-add btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@Url.Action("Mission","Add",new { projectId = Model.Id })" data-title="Görev Ekleme" data-toggle="tooltip" data-placement="top" title="Projeye görev ekle">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>

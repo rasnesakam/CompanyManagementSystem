@@ -1,4 +1,5 @@
-﻿using CMS.Entities.Dtos;
+﻿using CMS.Entities.Concrete;
+using CMS.Entities.Dtos;
 using CMS.Mvc.Areas.Admin.Models;
 using CMS.Services.Abstract;
 using CMS.Shared.Utilities.Results.ComplexTypes;
@@ -16,6 +17,7 @@ namespace CMS.Mvc.Areas.Admin.Controllers
     public class CompanyController : Controller
     {
         private ICompanyService _companyService;
+        private IProjectService _projectService;
         private IWebHostEnvironment _hostEnvironment;
 
         public CompanyController(ICompanyService companyService, IWebHostEnvironment hostEnvironment)
@@ -31,6 +33,19 @@ namespace CMS.Mvc.Areas.Admin.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Profile(int id)
+        {
+            var res = await _companyService.Get(id);
+            
+            return View(new CompanyModel
+            {
+                Company = res.Data.Company,
+                ResultStatus = res.Status,
+                Message = res.Message
+            });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Projects(int id)
         {
             var res = await _companyService.Get(id);
 

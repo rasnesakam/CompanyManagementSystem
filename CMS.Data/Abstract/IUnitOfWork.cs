@@ -12,7 +12,7 @@ namespace CMS.Data.Abstract
         IUserRepository Users { get; }
         IRoleRepository Roles { get; }
         ITagRepository Tags { get; }
-        IStatusRepository Status { get; }
+        IStatusRepository Statuses { get; }
         IReminderRepository Reminders { get; }
         IProjectUserRepository ProjectUsers{ get; }
         IProjectTagRepository ProjectTags { get; }

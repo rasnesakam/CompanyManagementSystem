@@ -1,0 +1,232 @@
+﻿@using CMS.Entities.Concrete
+
+@model CMS.Entities.Concrete.MissionComment
+
+<li class="row m-2">
+    <div class="col-12">
+        @*
+        <div class="col-12 m-2">
+            <div class="row m-1">
+                <div class="align-items-center">
+                    <!-- username -->
+                    <span class="text-dark-75 font-weight-bold m-2"><? echo $comment->getUserName() ?></span>
+                    <!-- date detail -->
+                    <span class="text-muted font-size-sm">
+                        <?php
+
+                        $timef = $comment->getUpdateDate();
+                        $timel = new DateTime(date('Y-m-d H:i:s'));
+                        $difference = $timel->diff($timef);
+
+                        $diff = "";
+
+                        if ($difference->y > 0 or $difference->m > 0) {
+                        echo $timef->format("d/m/Y H:i");
+                        } else if ($difference->y <= 0 and $difference->m <= 0 and $difference->d <= 0 and $difference->h <= 0) {
+                        echo "Bir saat içinde";
+                        } else {
+                        if ($difference->d > 0) $diff .= $difference->format('%a gün') . " ";
+                        if ($difference->h > 0) $diff .= $difference->format('%h saat');
+                        echo $diff;
+                        }
+
+                        ?>
+                    </span>
+
+                    <div class="btn-group drop right">
+                        <!-- Yorum seçenekleri tuşu -->
+                        <a id="comment-dropdown-<? echo $comment->getId() ?>" class="btn btn-sm btn-hover-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="svg-icon svg-icon-secondary svg-icon-sm">
+                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/General/Other2.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <circle fill="#000000" cx="5" cy="12" r="2" />
+                                        <circle fill="#000000" cx="12" cy="12" r="2" />
+                                        <circle fill="#000000" cx="19" cy="12" r="2" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-left drop right " aria-labelledby="<?php echo 'comment-dropdown-' . $comment->getId() ?>">
+
+                            <ul class="navi navi-hover">
+
+                                <li class="navi-item">
+                                    <a class="dropdown-item" @click="deleteComment($event,'<? echo $comment->getId() ?>')">Yorumu sil</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="mt-2 rounded p-4 bg-light-primary text-dark-50 font-weight-bold font-size-md max-w-400px" id="comment-<? echo $comment->getId() ?>">
+                    <div class="row mx-1">
+                        <!-- Yorum -->
+                        <?php echo $comment->getMessage() ?>
+                    </div>
+                    <!-- Comment Media -->
+                    <div id="comment-media-container<?php echo $comment->getId() ?>" class="row mt-3 d-flex justify-content-center">
+                        <?
+                        $mediaSQL = "SELECT * FROM site.comment_media where comment_id = {$comment->getId()}";
+                        $mediaQuery = $connection->get_query($mediaSQL);
+                        if ($mediaQuery !== false) :
+                        foreach ($mediaQuery->fetch_all(MYSQLI_ASSOC) as $media) :
+                        // Yorum medyası
+                        ?>
+                        <img width="50" height="50" @click="makeBigger" class="m-2 dialog-link" data-href="showimg.php?src=<? echo urlencode($media['media_path']) ?>" src="<? echo $media['media_path'] ?>" alt="comment_media">
+                        <?
+                        endforeach;
+                        endif;
+                        ?>
+                    </div>
+
+
+                    <?
+
+                    // Eklenen dökümanlar listeleniyor
+
+                    $sql = "SELECT * FROM comment_docs WHERE comment_id=" . $comment->getId();
+                    $docs = $connection->get_query($sql);
+
+                    if (mysqli_num_rows($docs)) :
+                    $id = generateRandomString(10);
+
+                    ?>
+                    <div class="d-flex justify-content-start " id="<? echo " doc-cont-$id" ?>
+                        ">
+                        <!-- doc view toggler -->
+                        <a class="list-toggle-container mt-2  mr-2" data-toggle="collapse" data-parent="#comment-<? echo $comment->getId() ?>" href="#list-docs-<? echo $comment->getId() ?>" aria-expanded="false">
+                            <i class="fa fa-paperclip"></i>
+                        </a>
+                        <div id="list-docs-<? echo $comment->getId() ?>" class="mt-2 bg-light task-list panel-collapse collapse">
+                            <div class=" bg-dark d-flex justify-content-between">
+                                <div class="d-flex justify-content-start">
+                                    <span class="ml-2 my-1 text-light"> <? getNumber($docs) ?> adet döküman mevcut </span>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <span class="my-1 text-light">Tümünü seç</span>
+                                    <input @click="selectAll($event,'<? echo " checkbox-" . $id ?>')" class="m-2" type="checkbox" />
+                                </div>
+                            </div>
+                            <form action="zip_download.php" method="post">
+                                <div>
+                                    <?
+                                    foreach ($docs->fetch_all(MYSQLI_ASSOC) as $doc) :
+
+                                    ?>
+                                    <div class="row p-2 m-2 border border-1 d-flex justify-content-between">
+
+                                        <div class="d-flex justify-content-start">
+                                            <!-- Döküman ikonu -->
+                                            <i class="m-2 fa fa-file-alt fa-lg"></i>
+                                            <a class="my-1 dz-clickable" style="text-overflow: ellipsis;">
+                                                <!-- Döküman ismi -->
+                                                <? echo $doc['doc_name'] ?>
+                                            </a>
+                                        </div>
+                                        <!-- Toplu indirme için seçim kuducuu -->
+                                        <input class="m-2 <? echo " checkbox-" . $id ?>" type="checkbox" name="<? echo "files_paths['" . $doc['id'] . "']" ?>" value="<? echo $doc['media_path'] ?>" />
+
+                                    </div>
+                                    <?
+
+                                    endforeach;
+                                    ?>
+                                </div>
+                                <div class="w-100">
+                                    <button class=" w-100 btn btn-hover-secondary" type="submit">
+                                        <div class="row d-flex justify-content-center">
+                                            <i class="fas fa-cloud-download-alt"></i>
+                                        </div>
+                                        <div class="row d-flex justify-content-center">
+                                            <span class="text-muted">İndir</span>
+                                        </div>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <?
+
+                    endif;
+
+                    ?>
+                    <!-- Yorum Sonu -->
+                </div>
+
+            </div>
+            <!-- Yoruma yapılan yanıtlar -->
+            <div class="row m-1">
+                <div class="col-12" id="<?php echo 'reply-container-' . $comment->getId() ?>">
+
+                    <!-- REPLIES -->
+
+                    <a class="list-toggle-container" data-toggle="collapse" data-parent="#reply-container-<? echo $comment->getId() ?>" href="#replies-<? echo $comment->getId() ?>" aria-expanded="false">
+
+                        <i class="fa fa-reply"></i>
+
+                    </a>
+                    <!-- Yanıtlar -->
+                    <div id="replies-<? echo $comment->getId() ?>" class="task-list panel-collapse collapse">
+
+                        <?php
+
+                        $sql = "SELECT * FROM site.replyview WHERE comment_id={$comment->getId()}";
+
+                        $replies = $connection->get_query($sql);
+                        if ($replies !== false) {
+                        if (mysqli_num_rows($replies) > 0) {
+                        ?>
+                        <a id="<? echo 'reply-comment-container-' . $comment->getId() ?>" class="list-toggle-container" data-toggle="collapse" data-parent="#replies-<? echo $comment->getId() ?>" href="<?php echo '#reply-comment-' . $comment->getId() ?>" aria-expanded="false" @click="chgIcon($event)">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+
+                        <div id="<?php echo 'reply-comment-' . $comment->getId() ?>" class="task-list panel-collapse collapse">
+                            <div class="col-12 m-2">
+                                <!-- REPLIES -->
+                                <?php
+
+                                foreach ($replies->fetch_all(MYSQLI_ASSOC) as $reply) getReplyView($reply);
+
+                                ?>
+
+                            </div>
+                        </div>
+                        <?php
+
+                        }
+
+                        ?>
+                        <!-- Yanıt  girgönderme girişi -->
+                        <div class="row">
+                            <form @submit="reply"></form>
+                            <div class="col-3">
+                                <input type="text" class="form-control border-0 p-1 w-100" v-model="replies[<? echo $comment->getId() ?>]" @keypress.enter="reply($event,<? echo $comment->getId() ?>)" placeholder="Yanıtla">
+                            </div>
+                            <div class="col-1">
+                                <button @click="reply($event,<? echo $comment->getId() ?>)" class="btn btn-hover-secondary">
+                                    <i class="fa fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <?php
+
+                        }
+
+                        ?>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        *@
+    </div>
+</li>

@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using CMS.Shared.Entities.Dtos
+@using CMS.Entities.Concrete
+@model DtoListBase<Tag>
+@section Styles{
+    <link rel="stylesheet" href="~/assets/css/custom/status-flag.css" />
+}
+<div class="content d-flex p-5 flex-column flex-column-fluid" id="kt_content">
+
+    <div class="card card-custom card-stretch gutter-b">
+        <div class="card-header">
+            <h3 class="card-title">Durumlar</h3>
+            <!-- action button -->
+            <div class="card-toolbar">
+                <!-- Add new Tag -->
+                <button class="btn btn-hover-primary dialog-link" data-href="@Url.Action("AddTag","Definers")" data-title="Yeni Durum Ekle">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"></rect>
+                            <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"></rect>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <ul class="list-group list-group-flush">
+
+                @foreach (Tag t in Model.Datas)
+                    @await Html.PartialAsync("_TagPartialView", t)
+
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/assets/plugins/custom/fullcalendar/fullcalendar.bundlec3e8.js?v=7.0.6"></script>
+    <script src="~/assets/js/pages/widgetsc3e8.js?v=7.0.6"></script>
+}

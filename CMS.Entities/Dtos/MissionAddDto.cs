@@ -33,6 +33,10 @@ namespace CMS.Entities.Dtos
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         public int StatusId { get; set; }
 
+        [Display(Name = "Proje")]
+        [Required(ErrorMessage = "{0} alanı zorunludur")]
+        public int ProjectId { get; set; }
+
         [Display(Name = "Görev Etiketleri")]
         public int[] Tags { get; set; }
     }
