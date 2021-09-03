@@ -18,13 +18,17 @@ namespace CMS.Mvc.Areas.Admin.Controllers
     {
         private ICompanyService _companyService;
         private IProjectService _projectService;
+        private IMissionService _missionService;
         private IWebHostEnvironment _hostEnvironment;
-
-        public CompanyController(ICompanyService companyService, IWebHostEnvironment hostEnvironment)
+        
+        public CompanyController(ICompanyService companyService, IProjectService projectService, IMissionService missionService, IWebHostEnvironment hostEnvironment)
         {
             _companyService = companyService;
+            _projectService = projectService;
+            _missionService = missionService;
             _hostEnvironment = hostEnvironment;
         }
+        
         public async Task<IActionResult> Index()
         {
             var res = await _companyService.GetAll();
@@ -48,13 +52,26 @@ namespace CMS.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Projects(int id)
         {
             var res = await _companyService.Get(id);
-
+            res.Data.Company.Projects = (await _projectService.GetAll(p => p.CompanyId == id)).Data.Projects;
             return View(new CompanyModel
             {
                 Company = res.Data.Company,
                 ResultStatus = res.Status,
                 Message = res.Message
             });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Missions(int projectId)
+        {
+            var res = await _missionService.GetAll(m => m.ProjectId == projectId);
+            return View(res.Data);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MissionComments(int missionId)
+        {
+            return View();
         }
 
         public async Task<IActionResult> Add()

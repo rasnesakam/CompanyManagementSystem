@@ -21,7 +21,7 @@ namespace CMS.Entities.Concrete
         public ICollection<Mail> Mails { get; set; }
         public ICollection<Central> Centrals { get; set; }
         public ICollection<Domain> Domains { get; set; }
-        public ICollection<User> Users { get; set; }
+        public ICollection<CompanyUsers> CompanyUsers { get; set; }
 
     }
 }

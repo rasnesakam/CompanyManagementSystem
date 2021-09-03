@@ -1,4 +1,5 @@
-﻿using CMS.Entities.Dtos;
+﻿using CMS.Entities.Concrete;
+using CMS.Entities.Dtos;
 using CMS.Shared.Utilities.Results.Abstract;
 using System;
 using System.Collections.Generic;
@@ -8,18 +9,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Services.Abstract
 {
-    public interface IReplyService
+    public interface IReplyService:IEntityService<MissionCommentReply>
     {
-        Task<IDataResult<ReplyDto>> Get(int replyId);
-        Task<IDataResult<ReplyListDto>> GetAll();
-        Task<IDataResult<ReplyListDto>> GetAllByNonDeleted();
-        Task<IDataResult<ReplyListDto>> GetAllByDeleted();
-        Task<IDataResult<ReplyListDto>> GetAllByActiveAndNonDeleted();
-
-        Task<IDataResult<ReplyDto>> Add(ReplyAddDto replyAddDto, string userName);
-        Task<IDataResult<ReplyDto>> Update(ReplyUpdateDto replyUpdateDto, string userName);
-
-        Task<IResult> Delete(int replyId);
-        Task<IResult> HardDelete(int replyId);
     }
 }

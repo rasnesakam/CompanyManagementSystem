@@ -10,11 +10,10 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
 {
-    public class UserMap:EntityBaseMap<User>
+    public class UserMap:IEntityTypeConfiguration<User>
     {
         public new  void Configure(EntityTypeBuilder<User> builder)
         {
-            base.Configure(builder);
 
             builder.Property(u => u.FirstName)
                 .IsRequired()
@@ -24,22 +23,20 @@ namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Property(u => u.UserName)
-                .IsRequired()
-                .HasMaxLength(25);
-            builder.HasIndex(u => u.UserName).IsUnique();
-            
-            builder.Property(u => u.EMail)
-                .IsRequired()
-                .HasMaxLength(50);
-            builder.HasIndex(u => u.EMail).IsUnique();
+            builder.Property(u => u.Avatar)
+                .HasMaxLength(256);
             
             builder.Property(u => u.PasswordHash)
                 .IsRequired()
                 .HasColumnType("VARBINARY(500)");
 
-            builder.HasOne<Company>(u => u.Company).WithMany(c => c.Users).HasForeignKey(u => u.CompanyId);
-            builder.HasOne<Role>(u => u.Role).WithMany(r => r.Users).HasForeignKey(u => u.RoleId);
+            builder.HasIndex(u => u.NormalizedUserName).HasDatabaseName("UserNameIndex").IsUnique();
+            builder.HasIndex(u => u.NormalizedEmail).HasDatabaseName("EmailIndex");
+            
+            builder.HasMany<UserClaim>().WithOne().HasForeignKey(uc => uc.UserId).IsRequired();
+            builder.HasMany<UserLogin>().WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
+            builder.HasMany<UserToken>().WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
+            builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
         }
     }
 }

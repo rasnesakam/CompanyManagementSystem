@@ -14,6 +14,7 @@ namespace CMS.Shared.Services.Concrete
     public class ServiceBase<Entity> : IServiceBase<Entity>
         where Entity: EntityBase
     {
+
         public Task<IDataResult<DtoBase<Entity>>> Add(IODtobase addDto, string userName)
         {
             throw new NotImplementedException();

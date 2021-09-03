@@ -1,6 +1,9 @@
 ﻿using CMS.Data.Abstract;
 using CMS.Data.Concrete.EntityFramework.Contexts;
 using CMS.Data.Concrete.EntityFramework.Repositories;
+using CMS.Shared.Data.Abstract;
+using CMS.Shared.Data.Concrete.EntityFramework;
+using CMS.Shared.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,7 @@ namespace CMS.Data.Concrete
     {
         private readonly CMSDbContext _context;
 
+        private EFEntityBaseRepository _eFEntityBaseRepository;
         private EFCentralRepository _eFCentralRepository;
         private EFCompanyRepository _eFCompanyRepository;
         private EFDomainRepository _eFDomainRepository;
@@ -29,20 +33,15 @@ namespace CMS.Data.Concrete
         private EFProjectTagRepository _eFProjectTagRepository;
         private EFProjectUserRepository _eFProjectUserRepository;
         private EFReminderRepository _eFReminderRepository;
-        private EFRoleRepository _eFRoleRepository;
         private EFStatusRepository _eFStatusRepository;
         private EFTagRepository _eFTagRepository;
-        private EFUSerREpository _eFUSerREpository;
 
         public UnitOfWork(CMSDbContext context)
         {
             _context = context;
         }
 
-        public IUserRepository Users => _eFUSerREpository ?? new EFUSerREpository(_context);
-
-        public IRoleRepository Roles => _eFRoleRepository ?? new EFRoleRepository(_context);
-
+        public IEntityBaseRepository BaseRepository => _eFEntityBaseRepository ?? new EFEntityBaseRepository(_context);
         public ITagRepository Tags => _eFTagRepository ?? new EFTagRepository(_context);
 
         public IStatusRepository Statuses => _eFStatusRepository ?? new EFStatusRepository(_context);
@@ -84,9 +83,15 @@ namespace CMS.Data.Concrete
             await _context.DisposeAsync();
         }
 
+
         public async Task<int> SaveAsync()
         {
             return await _context.SaveChangesAsync();
+        }
+
+        IEntityRepository<T> IUnitOfWork.GetRepository<T>()
+        {
+            return new EFEntityRepositoryBase<T>(_context);
         }
     }
 }

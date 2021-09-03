@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CMS.Shared.Data.Abstract;
+using CMS.Shared.Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,7 @@ namespace CMS.Data.Abstract
 {
     public interface IUnitOfWork : IAsyncDisposable
     {
-        
-        IUserRepository Users { get; }
-        IRoleRepository Roles { get; }
+        IEntityBaseRepository BaseRepository { get; }
         ITagRepository Tags { get; }
         IStatusRepository Statuses { get; }
         IReminderRepository Reminders { get; }
@@ -29,6 +29,8 @@ namespace CMS.Data.Abstract
         IDomainRepository Domains { get; }
         ICompanyrepository Companies { get; }
         ICentralRepository Centrals { get; }
+
+         IEntityRepository<T> GetRepository<T>() where T : class, IEntity, new();
 
         Task<int> SaveAsync();
     }

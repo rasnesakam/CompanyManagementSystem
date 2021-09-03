@@ -43,7 +43,7 @@ namespace CMS.Shared.Data.Concrete.EntityFramework
                 query = query.Where(predicate);
 
             }
-            if (includedProperties.Any())
+            if (includedProperties != null)
             {
                 foreach (var includedProoerty in includedProperties)
                 {

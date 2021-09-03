@@ -10,12 +10,16 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
 {
-    public class RoleMap: PrimitiveEntityMap<Role>
+    public class RoleMap: IEntityTypeConfiguration<Role>
     {
         public new void Configure(EntityTypeBuilder<Role> builder)
         {
-            base.Configure(builder);
+
             builder.ToTable("Roles");
+            builder.Property(b => b.ConcurrencyStamp).IsConcurrencyToken();
+            builder.HasIndex(r => r.NormalizedName).HasDatabaseName("RoleNameIndex").IsUnique();
+            builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.RoleId).IsRequired();
+            builder.HasMany<RoleClaim>().WithOne().HasForeignKey(rc => rc.RoleId).IsRequired();
         }
     }
 }

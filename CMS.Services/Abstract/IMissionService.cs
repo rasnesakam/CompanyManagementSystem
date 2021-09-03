@@ -12,18 +12,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Services.Abstract
 {
-    public interface IMissionService
+    public interface IMissionService: IEntityService<Mission>
     {
-        Task<IDataResult<DtoBase<Mission>>> Get(int missionId);
-        Task<IDataResult<DtoListBase<Mission>>> GetAll(Expression<Func<Mission, bool>> predicate = null);
-        Task<IDataResult<DtoListBase<Mission>>> GetAllByNonDeleted();
-        Task<IDataResult<DtoListBase<Mission>>> GetAllByDeleted();
-        Task<IDataResult<DtoListBase<Mission>>> GetAllByActiveAndNonDeleted();
-
-        Task<IDataResult<DtoBase<Mission>>> Add(MissionAddDto missionAddDto, string userName);
-        Task<IDataResult<DtoBase<Mission>>> Update(MissionUpdateDto missionUpdateDto, string userName);
-
-        Task<IResult> Delete(int missionId);
-        Task<IResult> HardDelete(int missionId);
     }
 }

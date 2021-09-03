@@ -37,8 +37,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCor
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cors.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -122,8 +120,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extension
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Http.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Core.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -412,7 +408,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Project.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Projects.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_CommentView.cshtml.g.cs
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_MissionView.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\_ProjectView.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\Statuses.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\AddStatus.cshtml.g.cs
@@ -421,3 +416,12 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\_TagPartialView.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Definers\_StatusPartialView.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Add\Mission.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\Missions.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\Company\MissionComments.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\Register.cshtml.g.cs

@@ -7,7 +7,7 @@
 @using CMS.Entities.Concrete
 @model CMS.Entities.Dtos.CompanyAddDto
 <!--begin::Content-->
-<form asp-action="Company" enctype="multipart/form-data">
+<form enctype="multipart/form-data" id="companyForm">
 
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
@@ -205,7 +205,7 @@
                                                                 
                                                                 <div class="col-lg-9 col-xl-9">
                                                                     <label asp-for="BillAddress">Fatura Adresi*</label>
-                                                                    <span class="text-danger" asp-validation-for="BillAddress">asd</span>
+                                                                    <span class="text-danger" asp-validation-for="BillAddress"></span>
                                                                     <div id="comp_address_div">
                                                                         <textarea asp-for="BillAddress" class="mb-4 mt-4 form-control form-control-solid form-control-lg"></textarea>
                                                                         <script>
@@ -303,3 +303,19 @@
     </div>
 
 </form>
+
+<script>
+    (function () {
+        var form = document.getElementById("companyForm")
+        form.onsubmit = function (e) {
+            e.preventDefault();
+
+            var formData = new FormData(form)
+            fetch("https://localhost:44310/api/Company", {
+                method: "POST",
+                contentType: "multipart/form-data",
+                body: formData
+            }).then(response => response.json()).then(data => console.log(data))
+        }
+    })();
+</script>

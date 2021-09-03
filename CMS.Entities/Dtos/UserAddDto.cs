@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,6 +10,10 @@ namespace CMS.Entities.Dtos
 {
     public class UserAddDto
     {
+        public string Avatar { get; set; }
+
+        public IFormFile AvatarFile { get; set; }
+
         [Display(Name ="Ad")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(50, ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
@@ -25,7 +30,8 @@ namespace CMS.Entities.Dtos
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(50, ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
         [MinLength(5, ErrorMessage = "{0} alanı en az {1} karakterden oluşmalıdır")]
-        public string EMail { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
 
         [Display(Name = "Kullanıcı Adı")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]
@@ -37,7 +43,8 @@ namespace CMS.Entities.Dtos
         [Required(ErrorMessage = "{0} alanı zorunludur")]
         [MaxLength(25, ErrorMessage = "{0} alanı en fazla {1} karakterden oluşmalıdır")]
         [MinLength(6, ErrorMessage = "{0} alanı en az {1} karakterden oluşmalıdır")]
-        public byte[] PasswordHash { get; set; }
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
         [Display(Name = "Çalıştığı Şirket")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

@@ -11,18 +11,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Services.Abstract
 {
-    public interface IStatusService
+    public interface IStatusService:IEntityService<Status>
     {
-        Task<IDataResult<DtoBase<Status>>> Get(int id);
-        Task<IDataResult<DtoListBase<Status>>> GetAll();
-        Task<IDataResult<DtoListBase<Status>>> GetAllByNonDeleted();
-        Task<IDataResult<DtoListBase<Status>>> GetAllByDeleted();
-        Task<IDataResult<DtoListBase<Status>>> GetAllByActiveAndNonDeleted();
-
-        Task<IDataResult<DtoBase<Status>>> Add(StatusAddDto addDto, string userName);
-        Task<IDataResult<DtoBase<Status>>> Update(StatusUpdateDto updateDto, string userName);
-
-        Task<IResult> Delete(int id, string userName);
-        Task<IResult> HardDelete(int id);
     }
 }

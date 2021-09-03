@@ -8,6 +8,9 @@ namespace CMS.Shared.Utilities.Results.ComplexTypes
 {
     public enum ResultStatus
     {
-        Error,Success,Info,Warning
+        Info = 100,
+        Success = 200,
+        Warning = 400,
+        Error = 500,
     }
 }

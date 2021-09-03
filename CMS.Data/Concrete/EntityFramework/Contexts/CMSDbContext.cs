@@ -2,6 +2,7 @@
 using CMS.Data.Concrete.EntityFramework.Mappings.Concrete;
 using CMS.Entities.Concrete;
 using CMS.Shared.Entities.Abstract;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Data.Concrete.EntityFramework.Contexts
 {
-    public class CMSDbContext: DbContext
+    public class CMSDbContext: IdentityDbContext<User,Role,int,UserClaim,UserRole,UserLogin,RoleClaim,UserToken>
     {
         public DbSet<Central> Centrals { get; set; }
         public DbSet<Company> Companies { get; set; }
@@ -29,10 +30,8 @@ namespace CMS.Data.Concrete.EntityFramework.Contexts
         public DbSet<ProjectTag> ProjectTags { get; set; }
         public DbSet<ProjectUser> ProjectUsers { get; set; }
         public DbSet<Reminder> Reminders { get; set; }
-        public DbSet<Role> Roles { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -45,6 +44,7 @@ namespace CMS.Data.Concrete.EntityFramework.Contexts
             // Apply Configurations
             modelBuilder.ApplyConfiguration(new CentralMap());
             modelBuilder.ApplyConfiguration(new CompanyMap());
+            modelBuilder.ApplyConfiguration(new CompanyUsersMap());
             modelBuilder.ApplyConfiguration(new DomainMap());
             modelBuilder.ApplyConfiguration(new MailMap());
             modelBuilder.ApplyConfiguration(new MissionCommentDocsMap());
@@ -62,7 +62,12 @@ namespace CMS.Data.Concrete.EntityFramework.Contexts
             modelBuilder.ApplyConfiguration(new StatusMap());
             modelBuilder.ApplyConfiguration(new TagMap());
             modelBuilder.ApplyConfiguration(new RoleMap());
+            modelBuilder.ApplyConfiguration(new RoleClaimMap());
             modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new UserLoginMap());
+            modelBuilder.ApplyConfiguration(new UserClaimMap());
+            modelBuilder.ApplyConfiguration(new UserRolesMap());
+            modelBuilder.ApplyConfiguration(new UserTokenMap());
 
             // DB Relations
 

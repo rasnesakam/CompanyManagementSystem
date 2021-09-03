@@ -11,18 +11,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Services.Abstract
 {
-    public interface ITagService
+    public interface ITagService:IEntityService<Tag>
     {
-        Task<IDataResult<DtoBase<Tag>>> Get(int id);
-        Task<IDataResult<DtoListBase<Tag>>> GetAll();
-        Task<IDataResult<DtoListBase<Tag>>> GetAllByNonDeleted();
-        Task<IDataResult<DtoListBase<Tag>>> GetAllByDeleted();
-        Task<IDataResult<DtoListBase<Tag>>> GetAllByActiveAndNonDeleted();
-
-        Task<IDataResult<DtoBase<Tag>>> Add(TagAddDto addDto, string userName);
-        Task<IDataResult<DtoBase<Tag>>> Update(TagUpdateDto updateDto, string userName);
-
-        Task<IResult> Delete(int id, string userName);
-        Task<IResult> HardDelete(int id);
     }
 }

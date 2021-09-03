@@ -1,4 +1,5 @@
-﻿using CMS.Entities.Dtos;
+﻿using CMS.Entities.Concrete;
+using CMS.Entities.Dtos;
 using CMS.Shared.Utilities.Results.Abstract;
 using System;
 using System.Collections.Generic;
@@ -8,18 +9,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Services.Abstract
 {
-    public interface INoteService
+    public interface INoteService:IEntityService<Note>
     {
-        Task<IDataResult<NoteDto>> Get(int noteId);
-        Task<IDataResult<NoteListDto>> GetAll();
-        Task<IDataResult<NoteListDto>> GetAllByNonDeleted();
-        Task<IDataResult<NoteListDto>> GetAllByDeleted();
-        Task<IDataResult<NoteListDto>> GetAllByActiveAndNonDeleted();
-
-        Task<IDataResult<NoteDto>> Add(NoteAddDto noteAddDto, string userName);
-        Task<IDataResult<NoteDto>> Update(NoteUpdateDto noteUpdateDto, string userName);
-
-        Task<IResult> Delete(int noteId, string userName);
-        Task<IResult> HardDelete(int noteId);
     }
 }

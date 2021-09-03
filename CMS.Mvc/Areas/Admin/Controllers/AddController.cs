@@ -342,5 +342,11 @@ namespace CMS.Mvc.Areas.Admin.Controllers
                     }
                     ));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(CommentAddDto<MissionComment,Mission> commentAddDto)
+        {
+            return Json("Bu yenilik getirilmedi");
+        }
     }
 }

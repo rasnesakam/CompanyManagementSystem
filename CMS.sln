@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Entities", "CMS.Entities\CMS.Entities.csproj", "{8406A9AF-9607-4E20-B1F4-D36C07ECB7ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Entities", "CMS.Entities\CMS.Entities.csproj", "{8406A9AF-9607-4E20-B1F4-D36C07ECB7ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Shared", "CMS.Shared\CMS.Shared.csproj", "{0E308BBA-010B-42F4-A0A4-8443065401B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Shared", "CMS.Shared\CMS.Shared.csproj", "{0E308BBA-010B-42F4-A0A4-8443065401B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Data", "CMS.Data\CMS.Data.csproj", "{0903517D-A102-4CC6-92A6-D6A5200FA0B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Data", "CMS.Data\CMS.Data.csproj", "{0903517D-A102-4CC6-92A6-D6A5200FA0B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Services", "CMS.Services\CMS.Services.csproj", "{2025B669-DA6F-48FA-8803-0E710C094D43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Services", "CMS.Services\CMS.Services.csproj", "{2025B669-DA6F-48FA-8803-0E710C094D43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Mvc", "CMS.Mvc\CMS.Mvc.csproj", "{D97D6D6D-4C8E-45A1-BEB1-3C21012C7C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Mvc", "CMS.Mvc\CMS.Mvc.csproj", "{D97D6D6D-4C8E-45A1-BEB1-3C21012C7C57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Api", "CMS.Api\CMS.Api.csproj", "{CEFE3B1B-9594-4D02-9567-C6E6B1F8D8FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{D97D6D6D-4C8E-45A1-BEB1-3C21012C7C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D97D6D6D-4C8E-45A1-BEB1-3C21012C7C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D97D6D6D-4C8E-45A1-BEB1-3C21012C7C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEFE3B1B-9594-4D02-9567-C6E6B1F8D8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFE3B1B-9594-4D02-9567-C6E6B1F8D8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFE3B1B-9594-4D02-9567-C6E6B1F8D8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFE3B1B-9594-4D02-9567-C6E6B1F8D8FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,3 @@
-using CMS.Services.AutoMapper.Profiles;
 using CMS.Services.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,12 +24,22 @@ namespace CMS.Mvc
                 opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
             });
             services.LoadMyService();
-            services.AddAutoMapper(
-                typeof(CentralProfile),
-                typeof(CompanyProfile),
-                typeof(DomainProfile),
-                typeof(MailProfile)
-                );
+            services.AddSession();
+            services.ConfigureApplicationCookie(opt=>
+            {
+                opt.LoginPath = new PathString();
+                opt.LogoutPath = new PathString();
+                opt.Cookie = new CookieBuilder
+                {
+                    Name = "CMS_COOKIE",
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.Strict,
+                    SecurePolicy = CookieSecurePolicy.SameAsRequest
+                };
+                opt.SlidingExpiration = true;
+                opt.ExpireTimeSpan = System.TimeSpan.FromDays(7);
+                opt.AccessDeniedPath = new PathString();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,9 +52,14 @@ namespace CMS.Mvc
 
             app.UseCors(options=> options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseStaticFiles();
+
+            app.UseAuthentication(); // Kimlik kontrolü
+            app.UseAuthorization(); //Yetki kontrolü
 
             app.UseEndpoints(endpoints =>
             {
@@ -54,6 +68,7 @@ namespace CMS.Mvc
                     areaName:"Admin",
                     pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
                     );
+                endpoints.MapControllers();
 
             });
         }
