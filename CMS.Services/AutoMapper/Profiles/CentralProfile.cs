@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public CentralProfile()
         {
             CreateMap<CentralAddDto, Central>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<CentralUpdateDto, Central>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<CentralUpdateDto, Central>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }        
     }
 }

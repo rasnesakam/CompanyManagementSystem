@@ -6,249 +6,253 @@
 }
 @using CMS.Entities.Concrete
 
-<li class="list-group-item">
+<template>
+    <li class="list-group-item ">
 
-    <div class="card " style="border:none;">
-        <div class="card-body" style="padding:5px;">
-            <!--begin::Top-->
-            <div class="d-flex">
-                <!--begin::Pic-->
-                <div class="flex-shrink-0 mr-7">
-                    <div class="symbol symbol-50 symbol-lg-120">
-                        <img alt="Logo" src="~/uploads/company/logos/@company.Icon" />
-                    </div>
-                </div>
-                <!--end::Pic-->
-                <!--begin: Info-->
-                <div class="flex-grow-1">
-                    <!--begin::Title-->
-                    <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
-                        <!--begin::User-->
-                        <div>
-
-                            <!--begin::Name-->
-                            <a asp-area="Admin" asp-controller="Company" asp-action="Profie" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                                @company.Name
-                                <i class="@(company.IsActive ? " text-success" : "text-danger") flaticon2-correct icon-md ml-2"></i>
-                            </a>
-                            <!--end::Name-->
-                            <!--begin::Contacts&Locations-->
-
-                            <div class="d-flex flex-wrap my-2">
-
-                            </div>
-
-                            <!--Domain sayıları falan-->
-                            <div style="width:100%;" class="d-flex align-items-center flex-wrap">
-                                <!--begin: Item-->
-                                <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
-                                    <span class="mr-4  text-muted font-weight-bold">
-                                        <i class="flaticon2-world icon-lg"></i>
-                                    </span>
-                                    <div class="d-flex flex-column text-dark-75">
-                                        <span class="font-weight-bolder font-size-sm">
-                                            Domain
-                                            sayısı
-                                        </span>
-                                        <span class="font-weight-bolder font-size-h5">
-                                            <span class="text-dark-90 font-weight-bold">
-                                                @(company.Domains != null ? company.Domains.Count : "Domain bilgileri bulunamadı" )
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <!--end: Item-->
-                                <!--begin: Item-->
-                                <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
-                                    <span class="mr-4">
-                                        <i class="fas fa-phone-alt icon-lg"></i>
-                                    </span>
-                                    <div class="d-flex flex-column text-dark-75">
-                                        <span class="font-weight-bolder font-size-sm">
-                                            Santral
-                                            sayısı
-                                        </span>
-                                        <span class="font-weight-bolder font-size-h5">
-                                            <span class="text-dark-90 font-weight-bold">
-                                                @(company.Centrals != null ? company.Centrals.Count : "Santral bilgileri bulunamadı" )
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <!--end: Item-->
-                                <!--begin: Item-->
-                                <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
-                                    <span class="mr-4">
-                                        <i class="flaticon-multimedia icon-2x text-muted font-weight-bold"></i>
-                                    </span>
-                                    <div class="d-flex flex-column text-dark-75">
-                                        <span class="font-weight-bolder font-size-sm">
-                                            E
-                                            posta sayısı
-                                        </span>
-                                        <span class="font-weight-bolder font-size-h5">
-                                            <span class="text-dark-90 font-weight-bold">
-                                                @(company.Mails != null ? company.Mails.Count : "E posta bilgileri bulunamadı" )
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <!--end: Item-->
-                                <!--begin: Item-->
-                                <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
-                                    <span class="mr-4">
-                                        <i class="flaticon-presentation-1 icon-2x text-muted font-weight-bold"></i>
-                                    </span>
-                                    <div class="d-flex flex-column text-dark-75">
-                                        <span class="font-weight-bolder font-size-sm">Proje sayısı</span>
-                                        <span class="font-weight-bolder font-size-h5">
-                                            <span class="text-dark-90 font-weight-bold">
-                                                @(company.Projects != null ? company.Projects.Count : "Proje bilgileri bulunamadı" )
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <!--end: Item-->
-
-                            </div>
-                            <!--end::Contacts-->
+        <div class="card " style="border:none;">
+            <div class="card-body" style="padding:5px;">
+                <!--begin::Top-->
+                <div class="d-flex">
+                    <!--begin::Pic-->
+                    <div class="flex-shrink-0 mr-7">
+                        <div class="symbol symbol-50 symbol-lg-120">
+                            <img alt="Logo" src="~/uploads/company/logos/${entry.Icon}" />
                         </div>
-                        <!--begin::User-->
-                        <!--begin::Actions-->
+                    </div>
+                    <!--end::Pic-->
+                    <!--begin: Info-->
+                    <div class="flex-grow-1">
+                        <!--begin::Title-->
+                        <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
+                            <!--begin::User-->
+                            <div>
 
-                        <div class="my-lg-0 my-1">
-
-
-                            <div class=" btn-group dropleft" data-toggle="tooltip" title="Yeni Ekle">
-
-                                <!--Ekleme ikonu-->
-                                <a style="margin-right:10px;" class="btn btn-sm btn-hover-light-primary  py-2 px-4" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
-                                    <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Navigation/Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-                                                <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1" />
-                                            </g>
-                                        </svg>
-                                        <!--end::Svg Icon-->
-                                    </span>
+                                <!--begin::Name-->
+                                <a asp-area="Admin" asp-controller="Company" asp-action="Profie" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
+                                    ${entry.Name}
+                                    <i class="flaticon2-correct icon-md ml-2"></i>
                                 </a>
+                                <!--end::Name-->
+                                <!--begin::Contacts&Locations-->
 
-                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropleft ">
-                                    <ul class="navi navi-hover">
-                                        <li class="navi-item">
+                                <div class="d-flex flex-wrap my-2">
 
-                                            <a class="navi-link dialog-link" data-href="@Url.Action("Domain","Add")" data-title="Yeni Domain Adresi Ekle">
-                                                <span class="mr-4">
-                                                    <span class="icon-sm text-muted">
-                                                        <i class="flaticon2-world icon-lg"></i>
+                                </div>
+
+                                <!--Domain sayıları falan-->
+                                <div style="width:100%;" class="d-flex align-items-center flex-wrap">
+                                    <!--begin: Item-->
+                                    <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                        <span class="mr-4  text-muted font-weight-bold">
+                                            <i class="flaticon2-world icon-lg"></i>
+                                        </span>
+                                        <div class="d-flex flex-column text-dark-75">
+                                            <span class="font-weight-bolder font-size-sm">
+                                                Domain
+                                                sayısı
+                                            </span>
+                                            <span class="font-weight-bolder font-size-h5">
+                                                <span class="text-dark-90 font-weight-bold">
+
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--end: Item-->
+                                    <!--begin: Item-->
+                                    <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                        <span class="mr-4">
+                                            <i class="fas fa-phone-alt icon-lg"></i>
+                                        </span>
+                                        <div class="d-flex flex-column text-dark-75">
+                                            <span class="font-weight-bolder font-size-sm">
+                                                Santral
+                                                sayısı
+                                            </span>
+                                            <span class="font-weight-bolder font-size-h5">
+                                                <span class="text-dark-90 font-weight-bold">
+
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--end: Item-->
+                                    <!--begin: Item-->
+                                    <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                        <span class="mr-4">
+                                            <i class="flaticon-multimedia icon-2x text-muted font-weight-bold"></i>
+                                        </span>
+                                        <div class="d-flex flex-column text-dark-75">
+                                            <span class="font-weight-bolder font-size-sm">
+                                                E
+                                                posta sayısı
+                                            </span>
+                                            <span class="font-weight-bolder font-size-h5">
+                                                <span class="text-dark-90 font-weight-bold">
+
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--end: Item-->
+                                    <!--begin: Item-->
+                                    <div style="margin:20px;" class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                        <span class="mr-4">
+                                            <i class="flaticon-presentation-1 icon-2x text-muted font-weight-bold"></i>
+                                        </span>
+                                        <div class="d-flex flex-column text-dark-75">
+                                            <span class="font-weight-bolder font-size-sm">Proje sayısı</span>
+                                            <span class="font-weight-bolder font-size-h5">
+                                                <span class="text-dark-90 font-weight-bold load-from-api" api-url="https://localhost:44310/api/Project/company/${entry.Id}">
+                                                    <action>
+                                                        response.Values.length
+                                                    </action>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--end: Item-->
+
+                                </div>
+                                <!--end::Contacts-->
+                            </div>
+                            <!--begin::User-->
+                            <!--begin::Actions-->
+
+                            <div class="my-lg-0 my-1">
+
+
+                                <div class=" btn-group dropleft" data-toggle="tooltip" title="Yeni Ekle">
+
+                                    <!--Ekleme ikonu-->
+                                    <a style="margin-right:10px;" class="btn btn-sm btn-hover-light-primary  py-2 px-4" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                                        <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                            <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-08-03-114926/theme/html/demo1/dist/../src/media/svg/icons/Navigation/Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1" />
+                                                </g>
+                                            </svg>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropleft ">
+                                        <ul class="navi navi-hover">
+                                            <li class="navi-item">
+
+                                                <a class="navi-link dialog-link" data-href="@Url.Action("Domain","Add")" data-title="Yeni Domain Adresi Ekle">
+                                                    <span class="mr-4">
+                                                        <span class="icon-sm text-muted">
+                                                            <i class="flaticon2-world icon-lg"></i>
+                                                        </span>
                                                     </span>
-                                                </span>
-                                                <span class="navi-text font-weight-bolder font-size-sm">
-                                                    Domain
-                                                    Ekle
-                                                </span>
-                                            </a>
+                                                    <span class="navi-text font-weight-bolder font-size-sm">
+                                                        Domain
+                                                        Ekle
+                                                    </span>
+                                                </a>
 
-                                        </li>
+                                            </li>
+                                            <li class="navi-item">
+
+                                                <a class="navi-link dialog-link" data-href="@Url.Action("Mail","Add")" data-title="Yeni E Posta Adresi Ekle">
+                                                    <span class="mr-4">
+                                                        <i class="flaticon-multimedia icon-md text-muted"></i>
+                                                    </span>
+
+                                                    <span class="navi-text font-weight-bolder font-size-sm">E Posta Ekle</span>
+
+                                                </a>
+
+                                            </li>
+                                            <li class="navi-item">
+
+                                                <a class="navi-link dialog-link" data-href="@Url.Action("central","Add")" data-title="Yeni Santral Ekle">
+                                                    <span class="mr-4">
+                                                        <i class="fas fa-phone-alt icon-lg"></i>
+                                                    </span>
+                                                    <span class="navi-text font-weight-bolder font-size-sm">Santral Ekle</span>
+                                                </a>
+
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- Detaylar -->
+                                <div class="btn-group dropleft" data-toggle="tooltip" title="Detay">
+
+                                    <a href="#" class="btn btn-sm-toggle btn-hover-light-primary " aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                                        <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24" />
+                                                    <circle fill="#000000" cx="5" cy="12" r="2" />
+                                                    <circle fill="#000000" cx="12" cy="12" r="2" />
+                                                    <circle fill="#000000" cx="19" cy="12" r="2" />
+                                                </g>
+                                            </svg>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" aria-labelledby="dropdownmenu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
+
                                         <li class="navi-item">
 
-                                            <a class="navi-link dialog-link" data-href="@Url.Action("Mail","Add")" data-title="Yeni E Posta Adresi Ekle">
-                                                <span class="mr-4">
-                                                    <i class="flaticon-multimedia icon-md text-muted"></i>
-                                                </span>
-
-                                                <span class="navi-text font-weight-bolder font-size-sm">E Posta Ekle</span>
-
+                                            <a class="navi-link" href="">
+                                                <span class="dropdown-item">Profile git</span>
                                             </a>
 
                                         </li>
+
                                         <li class="navi-item">
 
-                                            <a class="navi-link dialog-link" data-href="@Url.Action("central","Add")" data-title="Yeni Santral Ekle">
-                                                <span class="mr-4">
-                                                    <i class="fas fa-phone-alt icon-lg"></i>
-                                                </span>
-                                                <span class="navi-text font-weight-bolder font-size-sm">Santral Ekle</span>
+                                            <a class="navi-link" href="">
+                                                <span class="dropdown-item">Projeleri Gör</span>
                                             </a>
 
                                         </li>
+
+                                        <li class="navi-item">
+                                            <button class="dropdown-item ">
+                                                İletişim
+                                                Kur
+                                            </button>
+                                        </li>
+
+                                        <li class="navi-item">
+
+                                            <form action="/content/companies/add/" method="POST">
+                                                <input type="hidden" name="comp_id" value="<? echo $company->getId() ?>" />
+                                                <button type="submit" class="dropdown-item">BilgileriDüzenle</button>
+                                            </form>
+
+                                        </li>
+
+                                        <li class="navi-item">
+                                            <button class="dropdown-item">Not Ekle</button>
+                                        </li>
+
                                     </ul>
 
                                 </div>
-
                             </div>
 
-                            <!-- Detaylar -->
-                            <div class="btn-group dropleft" data-toggle="tooltip" title="Detay">
-
-                                <a href="#" class="btn btn-sm-toggle btn-hover-light-primary " aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
-                                    <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="0" y="0" width="24" height="24" />
-                                                <circle fill="#000000" cx="5" cy="12" r="2" />
-                                                <circle fill="#000000" cx="12" cy="12" r="2" />
-                                                <circle fill="#000000" cx="19" cy="12" r="2" />
-                                            </g>
-                                        </svg>
-                                        <!--end::Svg Icon-->
-                                    </span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-sm text-center" role="menu" aria-labelledby="dropdownmenu" style=" right: 0; left: auto; padding-left: 1px; padding-right: 1px;">
-
-                                    <li class="navi-item">
-
-                                        <a class="navi-link" href="@Url.Action("Profile","Company",new { id=company.Id})">
-                                            <span class="dropdown-item">Profile git</span>
-                                        </a>
-
-                                    </li>
-
-                                    <li class="navi-item">
-
-                                        <a class="navi-link" href="@Url.Action("Projects","Company",new { id=company.Id})">
-                                            <span class="dropdown-item">Projeleri Gör</span>
-                                        </a>
-
-                                    </li>
-
-                                    <li class="navi-item">
-                                        <button class="dropdown-item ">
-                                            İletişim
-                                            Kur
-                                        </button>
-                                    </li>
-
-                                    <li class="navi-item">
-
-                                        <form action="/content/companies/add/" method="POST">
-                                            <input type="hidden" name="comp_id" value="<? echo $company->getId() ?>" />
-                                            <button type="submit" class="dropdown-item">BilgileriDüzenle</button>
-                                        </form>
-
-                                    </li>
-
-                                    <li class="navi-item">
-                                        <button class="dropdown-item">Not Ekle</button>
-                                    </li>
-
-                                </ul>
-
-                            </div>
+                            <!--end::Actions-->
                         </div>
-
-                        <!--end::Actions-->
+                        <!--end::Title-->
+                        <!--begin::Content-->
+                        <!--end::Content-->
                     </div>
-                    <!--end::Title-->
-                    <!--begin::Content-->
-                    <!--end::Content-->
+                    <!--end::Info-->
                 </div>
-                <!--end::Info-->
+                <!--end::Top-->
+
             </div>
-            <!--end::Top-->
-
         </div>
-    </div>
 
-</li>
+    </li>
+</template>

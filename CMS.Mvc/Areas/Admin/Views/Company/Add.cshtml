@@ -306,11 +306,11 @@
 
 <script>
     (function () {
-        var form = document.getElementById("companyForm")
+        let form = document.getElementById("companyForm")
+        let formData = new FormData(form)
+        formData.append("CreatedByName","ensar")
         form.onsubmit = function (e) {
             e.preventDefault();
-
-            var formData = new FormData(form)
             fetch("https://localhost:44310/api/Company", {
                 method: "POST",
                 contentType: "multipart/form-data",

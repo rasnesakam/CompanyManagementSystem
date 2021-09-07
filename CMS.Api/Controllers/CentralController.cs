@@ -32,7 +32,7 @@ namespace CMS.Api.Controllers
             {
                 Messages = new List<string>(new string[] { res.Message }),
                 StatusCode = (int) res.Status,
-                Values = res.Data.Centrals
+                Values = res.Data
 
             };
             return JsonSerializer.Serialize<ReturnModel<Central>>(model);
@@ -46,7 +46,7 @@ namespace CMS.Api.Controllers
             {
                 Messages = new List<string>(new string[] { res.Message }),
                 StatusCode = (int) res.Status,
-                Values = new List<Central>(new Central[] { res.Data.Central })
+                Values = new List<Central>(new Central[] { res.Data })
             });            
         }
 
@@ -58,7 +58,7 @@ namespace CMS.Api.Controllers
             {
                 Messages = new List<string>(new string[] { res.Message }),
                 StatusCode = (int) res.Status,
-                Values = res.Data.Centrals
+                Values = res.Data
 
             };
             return JsonSerializer.Serialize<ReturnModel<Central>>(model);
@@ -70,12 +70,12 @@ namespace CMS.Api.Controllers
             ReturnModel<Central> model;
             if (ModelState.IsValid)
             {
-                var res = await centralService.Add(dto,"ensar");
+                var res = await centralService.Add(dto);
                 if (res.Status == ResultStatus.Success) model = new ReturnModel<Central>
                 {
                     StatusCode = 201,
                     Messages = null,
-                    Values = new List<Central>(new Central[] {res.Data.Central})
+                    Values = new List<Central>(new Central[] {res.Data})
                 };
                 else model = new ReturnModel<Central>
                 {
@@ -103,12 +103,12 @@ namespace CMS.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<string> Put(CentralUpdateDto dto)
+        public async Task<string> Put(CentralAddDto dto)
         {
             ReturnModel<Central> model;
             if (ModelState.IsValid)
             {
-                var res = await centralService.Update(dto, "ensar");
+                var res = await centralService.Update(dto);
                 if (res.Status == ResultStatus.Success) 
                     model = new ReturnModel<Central>
                     {

@@ -1,5 +1,6 @@
 ﻿using CMS.Entities.Abstract;
 using CMS.Shared.Entities.Abstract;
+using CMS.Shared.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class CommentAddDto<CEntity,PEntity>
+    public class CommentAddDto<CEntity,PEntity>: IODtobase
         where PEntity: EntityBase,new()
         where CEntity: CommentEntityBase<PEntity>
     {

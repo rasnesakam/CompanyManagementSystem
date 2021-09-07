@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class CentralAddDto
+    public class CentralAddDto:IODtobase
     {
 
         [Display(Name = "Santral Numarası")]

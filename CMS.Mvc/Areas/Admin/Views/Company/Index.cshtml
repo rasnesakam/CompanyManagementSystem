@@ -70,23 +70,11 @@
             <!--begin::Card-->
             <!--end::Card-->
 
-            @if (Model.ResultStatus == CMS.Shared.Utilities.Results.ComplexTypes.ResultStatus.Success)
-            {
-                <ul class="list-group">
+            <ul class="list-group load-from-api" api-url="https://localhost:44310/api/Company">
 
-                    @foreach (Company company in Model.Companies)
-                    {
-                        ViewBag.Company = company;
+                @await Html.PartialAsync("_CompanyListView")
 
-                        @await Html.PartialAsync("_CompanyListView")
-                    }
-
-                </ul>
-            } else {
-            
-                <div class="text-center">Herhangi bir şirket bulunamadı</div>
-
-            } 
+            </ul>
 
         </div>
         <!--end::Container-->

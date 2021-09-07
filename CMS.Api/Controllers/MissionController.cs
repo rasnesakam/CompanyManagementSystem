@@ -20,33 +20,23 @@ namespace CMS.Api.Controllers
     public class MissionController : ControllerBase
     {
         private readonly IMissionService _missionService;
-        private readonly IEntityService<Mission> _entityService;
 
-        public MissionController(IMissionService missionService, IEntityService<Mission> entityService)
+        public MissionController(IMissionService missionService)
         {
             _missionService = missionService;
-            _entityService = entityService;
         }
 
         [HttpGet]
         public async Task<string> Get()
         {
-            /*
             var res = await _missionService.GetAll();
             return JsonSerializer.Serialize(new ReturnModel<Mission>
             {
                 StatusCode = (int) res.Status,
                 Messages = new(new string[] { res.Message }),
-                Values = res.Data.Datas
-            });
-            */
-            var res = await _entityService.GetAll();
-            return JsonSerializer.Serialize(new ReturnModel<Mission>
-            {
-                StatusCode = (int)res.Status,
-                Messages = new(new string[] { res.Message }),
                 Values = res.Data
             });
+            
         }
 
         [HttpGet("{id}")]
@@ -57,7 +47,7 @@ namespace CMS.Api.Controllers
             {
                 StatusCode = (int)res.Status,
                 Messages = new(new string[] { res.Message }),
-                Values = new List<Mission>(new Mission[] {res.Data.Data})
+                Values = new List<Mission>(new Mission[] {res.Data})
             });
         }
 
@@ -69,7 +59,7 @@ namespace CMS.Api.Controllers
             {
                 StatusCode = (int)res.Status,
                 Messages = new(new string[] { res.Message }),
-                Values = res.Data.Datas
+                Values = res.Data
             });
         }
 
@@ -79,10 +69,8 @@ namespace CMS.Api.Controllers
             ReturnModel<Mission> model;
             if (ModelState.IsValid)
             {
-                //var res = await _missionService.Add(dto, "ensar");
+                var res = await _missionService.Add(dto);
 
-                var res = await _entityService.Add(dto);
-                
                 model = new ReturnModel<Mission>
                 {
                     StatusCode = (int)res.Status,
@@ -109,17 +97,17 @@ namespace CMS.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<string> Put(MissionUpdateDto dto) 
+        public async Task<string> Put(MissionAddDto dto) 
         {
             ReturnModel<Mission> model;
             if (ModelState.IsValid)
             {
-                var res = await _missionService.Update(dto, "ensar");
+                var res = await _missionService.Update(dto);
                 model = new ReturnModel<Mission>
                 {
                     StatusCode = (int)res.Status,
                     Messages = new(new string[] { res.Message }),
-                    Values = new List<Mission>(new Mission[] { res.Data.Data })
+                    Values = new List<Mission>(new Mission[] { res.Data })
                 };
             }
             else
@@ -143,7 +131,7 @@ namespace CMS.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<string> Delete(int id) 
         {
-            var res = await _missionService.Delete(id);
+            var res = await _missionService.Delete(id,"ensar");
             return JsonSerializer.Serialize(new ReturnModel<Mission>
             {
                 Messages = new(new string[] { res.Message }),

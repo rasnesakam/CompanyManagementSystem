@@ -44,14 +44,7 @@ namespace CMS.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CMS.Api", Version = "v1" });
             });
             services.LoadMyService();
-            services.AddAutoMapper(
-                typeof(CentralProfile),
-                typeof(CompanyProfile),
-                typeof(DomainProfile),
-                typeof(MailProfile),
-                typeof(UserProfile),
-                typeof(MissionProfile)
-                );
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

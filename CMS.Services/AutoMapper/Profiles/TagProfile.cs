@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public TagProfile()
         {
             CreateMap<TagAddDto, Tag>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<TagUpdateDto, Tag>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<TagUpdateDto, Tag>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

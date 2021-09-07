@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public MailProfile()
         {
             CreateMap<MailAddDto, Mail>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<MailUpdateDto, Mail>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<MailUpdateDto, Mail>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public NoteProfile()
         {
             CreateMap<NoteAddDto, Note>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<NoteUpdateDto, Note>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<NoteUpdateDto, Note>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

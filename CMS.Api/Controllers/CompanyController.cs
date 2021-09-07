@@ -30,15 +30,27 @@ namespace CMS.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Company>> Get()
+        public async Task<string> Get()
         {
-            return (await _companyService.GetAll()).Data.Companies;
+            var res = await _companyService.GetAll();
+            return JsonSerializer.Serialize(new ReturnModel<Company>
+            {
+                StatusCode = (int) res.Status,
+                Messages = new(new string[] {res.Message}),
+                Values = res.Data
+            });
         }
 
         [HttpGet("{id}")]
-        public async Task<Company> Get(int id)
+        public async Task<string> Get(int id)
         {
-            return (await _companyService.Get(id)).Data.Company;
+            var res = await _companyService.Get(id);
+            return JsonSerializer.Serialize(new ReturnModel<Company>
+            {
+                StatusCode = (int)res.Status,
+                Messages = new(new string[] { res.Message }),
+                Values = new List<Company>(new Company[] { res.Data })
+            });
         }
 
         [HttpPost]
@@ -58,7 +70,7 @@ namespace CMS.Api.Controllers
             if (ModelState.IsValid)
             {
 
-                var res = await _companyService.Add(dto, "ensar");
+                var res = await _companyService.Add(dto);
                 if (res.Status == ResultStatus.Success)
                 {
                     return JsonSerializer.Serialize<ReturnModel<Company>>(new ReturnModel<Company>
@@ -92,7 +104,7 @@ namespace CMS.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<string> Put([FromBody] CompanyUpdateDto dto) {
+        public async Task<string> Put([FromBody] CompanyAddDto dto) {
             if (dto.IconFile != null)
             {
                 string uploads = Path.Combine(_hostEnvironment.WebRootPath, "uploads/company/logos");
@@ -107,7 +119,7 @@ namespace CMS.Api.Controllers
             if (ModelState.IsValid)
             {
 
-                var res = await _companyService.Update(dto, "ensar");
+                var res = await _companyService.Update(dto);
                 if (res.Status == ResultStatus.Success)
                 {
                     return JsonSerializer.Serialize<ReturnModel<Company>>(new ReturnModel<Company>

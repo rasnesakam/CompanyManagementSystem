@@ -13,12 +13,12 @@ namespace CMS.Services.Abstract
     public interface IEntityService<Entity>
         where Entity: EntityBase
     {
-        Task<IDataResult<Entity>> Get(int entityId);
-        Task<IDataResult<ICollection<Entity>>> GetAll(Expression<Func<Entity, bool>> predicate = null);
-        Task<IDataResult<ICollection<Entity>>> GetAllByNonDeleted();
-        Task<IDataResult<ICollection<Entity>>> GetAllByDeleted();
-        Task<IDataResult<ICollection<Entity>>> GetAllByActiveAndNonDeleted();
-        Task<IDataResult<ICollection<Entity>>> GetAllByNonActive();
+        Task<IDataResult<Entity>> Get(int entityId, params Expression<Func<Entity, object>>[] includeProperty);
+        Task<IDataResult<ICollection<Entity>>> GetAll(Expression<Func<Entity, bool>> predicate = null, params Expression<Func<Entity, object>>[] includeProperty);
+        Task<IDataResult<ICollection<Entity>>> GetAllByNonDeleted(params Expression<Func<Entity, object>>[] includeProperty);
+        Task<IDataResult<ICollection<Entity>>> GetAllByDeleted(params Expression<Func<Entity, object>>[] includeProperty);
+        Task<IDataResult<ICollection<Entity>>> GetAllByActiveAndNonDeleted(params Expression<Func<Entity, object>>[] includeProperty);
+        Task<IDataResult<ICollection<Entity>>> GetAllByNonActive(params Expression<Func<Entity, object>>[] includeProperty);
 
         Task<IDataResult<Entity>> Add(IODtobase dto);
         Task<IDataResult<Entity>> Update(IODtobase dto);

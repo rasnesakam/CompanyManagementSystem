@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public StatusProfile()
         {
             CreateMap<StatusAddDto, Status>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<StatusUpdateDto, Status>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<StatusUpdateDto, Status>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

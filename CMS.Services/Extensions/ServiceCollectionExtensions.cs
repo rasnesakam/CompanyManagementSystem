@@ -10,6 +10,7 @@ using CMS.Services.Abstract;
 using CMS.Services.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 using CMS.Entities.Concrete;
+using CMS.Services.AutoMapper.Profiles;
 
 namespace CMS.Services.Extensions
 {
@@ -31,7 +32,7 @@ namespace CMS.Services.Extensions
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
             serviceCollection.AddScoped<ICentralService, CentralManager>();
             serviceCollection.AddScoped<ICompanyService, CompanyManager>();
-            serviceCollection.AddScoped<IMissionCommentService<MissionComment,Mission>, MissionCommentManager>();
+            serviceCollection.AddScoped<IMissionCommentService, MissionCommentManager>();
             serviceCollection.AddScoped<IDomainService, DomainManager>();
             serviceCollection.AddScoped<IMailService, MailManager>();
             serviceCollection.AddScoped<INoteService, NoteManager>();
@@ -39,7 +40,15 @@ namespace CMS.Services.Extensions
             serviceCollection.AddScoped<IStatusService, StatusManager>();
             serviceCollection.AddScoped<ITagService, TagManager>();
             serviceCollection.AddScoped<IMissionService, MissionManager>();
-            serviceCollection.AddScoped<IEntityService<Mission>, NewMissionManager>();
+
+            serviceCollection.AddAutoMapper(
+                typeof(CentralProfile),
+                typeof(CompanyProfile),
+                typeof(DomainProfile),
+                typeof(MailProfile),
+                typeof(MissionProfile)
+                );
+
             return serviceCollection;
         }
     }

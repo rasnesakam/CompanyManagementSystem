@@ -48,75 +48,12 @@ namespace CMS.Mvc.Areas.Admin.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> AddStatus(StatusAddDto dto)
-        {
 
-            if (ModelState.IsValid)
-            {
-                var newStatus = await _statusService.Add(dto,"ensar");
-                if (newStatus.Status == ResultStatus.Success)
-                {
-                    return Json(JsonSerializer.Serialize(new BaseReturnModel<Status>
-                    {
-                        StatusCode = 201,
-                        Message = newStatus.Message,
-                        Data = newStatus.Data.Data
-                    }));
-                }
-                return Json(JsonSerializer.Serialize(new BaseReturnModel<Status>
-                {
-                    StatusCode = 400,
-                    Message = newStatus.Message
-                }));
-            }
-            return Json(
-                JsonSerializer.Serialize(
-                    new BaseReturnModel<Status>
-                    {
-                        PartialView = await this.RenderViewToStringAsync("AddStatus",dto),
-                        StatusCode = 400
-                    }
-                    ));
-
-        }
 
         [HttpGet]
         public IActionResult AddTag()
         {
             return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> AddTag(TagAddDto dto)
-        {
-
-            if (ModelState.IsValid)
-            {
-                var newTag = await _tagService.Add(dto, "ensar");
-                if (newTag.Status == ResultStatus.Success)
-                {
-                    return Json(JsonSerializer.Serialize(new BaseReturnModel<Tag>
-                    {
-                        StatusCode = 201,
-                        Message = newTag.Message,
-                        Data = newTag.Data.Data
-                    }));
-                }
-                return Json(JsonSerializer.Serialize(new BaseReturnModel<Tag>
-                {
-                    StatusCode = 400,
-                    Message = newTag.Message
-                }));
-            }
-            return Json(
-                JsonSerializer.Serialize(
-                    new BaseReturnModel<Tag>
-                    {
-                        PartialView = await this.RenderViewToStringAsync("AddStatus", dto),
-                        StatusCode = 400
-                    }
-                    ));
-
         }
 
     }

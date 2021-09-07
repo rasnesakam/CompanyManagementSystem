@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public CompanyProfile()
         {
             CreateMap<CompanyAddDto, Company>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<CompanyUpdateDto, Company>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<CompanyUpdateDto, Company>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 

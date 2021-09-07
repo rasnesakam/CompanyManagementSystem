@@ -18,9 +18,9 @@ namespace CMS.Api.Controllers
     [ApiController]
     public class CommentsController : ControllerBase
     {
-        private readonly IMissionCommentService<MissionComment,Mission> _commentService;
+        private readonly IMissionCommentService _commentService;
 
-        public CommentsController(IMissionCommentService<MissionComment, Mission> commentService)
+        public CommentsController(IMissionCommentService commentService)
         {
             _commentService = commentService;
         }
@@ -33,7 +33,7 @@ namespace CMS.Api.Controllers
             {
                 Messages = new List<string>(new string[] { res.Message }),
                 StatusCode = (int) res.Status,
-                Values = res.Data.Comments
+                Values = res.Data
             });
         }
 
@@ -45,7 +45,7 @@ namespace CMS.Api.Controllers
             {
                 Messages = new List<string>(new string[] { res.Message }),
                 StatusCode = (int)res.Status,
-                Values = res.Data.Comments
+                Values = res.Data
             });
         }
 
@@ -55,12 +55,12 @@ namespace CMS.Api.Controllers
             ReturnModel<MissionComment> model;
             if (ModelState.IsValid)
             {
-                var res = await _commentService.Add(dto, "ensar");
+                var res = await _commentService.Add(dto);
                 model = new ReturnModel<MissionComment>
                 {
                     StatusCode = (int)res.Status,
                     Messages = new List<string>(new string[] { res.Message }),
-                    Values = new List<MissionComment>(new MissionComment[] { res.Data.Comment })
+                    Values = new List<MissionComment>(new MissionComment[] { res.Data })
                 };
             }
             else
@@ -85,17 +85,17 @@ namespace CMS.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<string> Put(CommentUpdateDto<MissionComment,Mission> dto) 
+        public async Task<string> Put(CommentAddDto<MissionComment,Mission> dto) 
         {
             ReturnModel<MissionComment> model;
             if (ModelState.IsValid)
             {
-                var res = await _commentService.Update(dto, "ensar");
+                var res = await _commentService.Update(dto);
                 model = new ReturnModel<MissionComment>
                 {
                     StatusCode = (int)res.Status,
                     Messages = new List<string>(new string[] { res.Message }),
-                    Values = new List<MissionComment>(new MissionComment[] { res.Data.Comment })
+                    Values = new List<MissionComment>(new MissionComment[] { res.Data })
                 };
             }
             else
@@ -122,7 +122,7 @@ namespace CMS.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<string> Delete(int id) 
         {
-            var res = await _commentService.Delete(id);
+            var res = await _commentService.Delete(id,"ensar");
             return JsonSerializer.Serialize(new ReturnModel<MissionComment>
             {
                 StatusCode = (int)res.Status,

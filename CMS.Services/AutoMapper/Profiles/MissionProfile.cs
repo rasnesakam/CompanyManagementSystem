@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public MissionProfile()
         {
             CreateMap<MissionAddDto, Mission>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<MissionUpdateDto, Mission>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<MissionUpdateDto, Mission>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

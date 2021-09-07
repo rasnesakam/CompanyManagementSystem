@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public ProjectProfile()
         {
             CreateMap<ProjectAddDto, Project>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<ProjectUpdateDto, Project>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<ProjectUpdateDto, Project>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

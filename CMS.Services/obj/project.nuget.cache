@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "8sxzTrFPaWxflEjQoMTSBi811KX92IWzVN+mIHjDamEFGCwTAXtjDMQulfySHRFcbfzDYI+dDG/7qzU3cVJZnA==",
+  "dgSpecHash": "kWl8gDu2exvypFEjQR7hv8djWRsrREkelkqObkOOiJd9C106jBhPO8sc1ytJbUCp/wybrz+eQ8wXkaxF5wv/Cg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\CMS\\CMS.Services\\CMS.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

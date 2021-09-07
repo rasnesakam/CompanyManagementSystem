@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS.Shared.Entities.Dtos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class MailAddDto
+    public class MailAddDto:IODtobase
     {
         [Display(Name = "E Posta adı")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

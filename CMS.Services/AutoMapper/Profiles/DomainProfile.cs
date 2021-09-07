@@ -14,7 +14,7 @@ namespace CMS.Services.AutoMapper.Profiles
         public DomainProfile()
         {
             CreateMap<DomainAddDto, Domain>().ForMember(dest => dest.CreateDate, opt => opt.MapFrom(x => DateTime.Now));
-            CreateMap<DomainUpdateDto, Domain>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
+            //CreateMap<DomainUpdateDto, Domain>().ForMember(dest => dest.ModifiedDate, opt => opt.MapFrom(x => DateTime.Now));
         }
     }
 }

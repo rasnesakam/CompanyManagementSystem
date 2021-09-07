@@ -47,7 +47,7 @@ namespace CMS.Api.Controllers
             {
                 StatusCode = (int)res.Status,
                 Messages = new List<string>(new string[] { res.Message }),
-                Values = res.Data.Projects
+                Values = res.Data
             });
         }
 
@@ -59,8 +59,8 @@ namespace CMS.Api.Controllers
             return JsonSerializer.Serialize(new ReturnModel<Project>
             {
                 StatusCode = (int)res.Status,
-                Messages = new List<string>(new string[] { res.Data.Message }),
-                Values = new List<Project>(new Project[] { res.Data.Project })
+                Messages = new List<string>(new string[] { res.Message }),
+                Values = new List<Project>(new Project[] { res.Data })
             });
         }
 
@@ -71,12 +71,12 @@ namespace CMS.Api.Controllers
             ReturnModel<Project> model;
             if (ModelState.IsValid) 
             {
-                var res = await _projectService.Add(dto, "ensar");
+                var res = await _projectService.Add(dto);
                 model = new ReturnModel<Project>
                 {
                     StatusCode = (int)res.Status,
                     Messages = new List<string>(new string[] { res.Message }),
-                    Values = new List<Project>(new Project[] { res.Data.Project })
+                    Values = new List<Project>(new Project[] { res.Data })
                 };
             }
             else
@@ -102,17 +102,17 @@ namespace CMS.Api.Controllers
 
         // PUT api/<ProjectsController>/5
         [HttpPut("{id}")]
-        public async Task<string> Put(int id, [FromBody] ProjectUpdateDto dto)
+        public async Task<string> Put(int id, [FromBody] ProjectAddDto dto)
         {
             ReturnModel<Project> model;
             if (ModelState.IsValid)
             {
-                var res = await _projectService.Update(dto, "ensar");
+                var res = await _projectService.Update(dto);
                 model = new ReturnModel<Project>
                 {
                     StatusCode = (int)res.Status,
                     Messages = new List<string>(new string[] { res.Message }),
-                    Values = new List<Project>(new Project[] { res.Data.Project })
+                    Values = new List<Project>(new Project[] { res.Data })
                 };
             }
             else
