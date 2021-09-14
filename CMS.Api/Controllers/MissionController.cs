@@ -54,7 +54,7 @@ namespace CMS.Api.Controllers
         [HttpGet("project/{id}")]
         public async Task<string> GetForProject(int id)
         {
-            var res = await _missionService.GetAll(m=> m.Id == id);
+            var res = await _missionService.GetAll(m=> m.ProjectId == id);
             return JsonSerializer.Serialize(new ReturnModel<Mission>
             {
                 StatusCode = (int)res.Status,

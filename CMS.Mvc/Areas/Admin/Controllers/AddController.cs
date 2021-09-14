@@ -15,36 +15,15 @@ using CMS.Mvc.Areas.Admin.Models;
 using CMS.Shared.Utilities.Extensions;
 using CMS.Entities.Concrete;
 using CMS.Shared.Entities.Dtos;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class AddController : Controller
     {
-        private ICompanyService _companyService;
-        private ICentralService _centralService;
-        private IDomainService _domainService;
-        private INoteService _noteService;
-        private IMailService _mailService;
-        private IProjectService _projectService;
-        private ITagService _tagService;
-        private IStatusService _statusService;
-        private IMissionService _missionService;
-        private IWebHostEnvironment _hostEnvironment;
-
-        public AddController(ICompanyService companyService, ICentralService centralService, IDomainService domainService, INoteService noteService, IMailService mailService, IProjectService projectService, ITagService tagService, IStatusService statusService, IMissionService missionService, IWebHostEnvironment hostEnvironment)
-        {
-            _companyService = companyService;
-            _centralService = centralService;
-            _domainService = domainService;
-            _noteService = noteService;
-            _mailService = mailService;
-            _projectService = projectService;
-            _tagService = tagService;
-            _statusService = statusService;
-            _missionService = missionService;
-            _hostEnvironment = hostEnvironment;
-        }
+        
 
         public async Task<IActionResult> Central()
         {

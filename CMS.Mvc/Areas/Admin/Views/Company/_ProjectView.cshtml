@@ -5,26 +5,26 @@
 <li class="mt-list-item">
 
     <div class="list-todo-icon bg-white">
-        <i class="fa fa-database" style="color:#@(Model.Status != null ? Model.Status.ColorHex : "343a40")" data-toggle="tooltip" data-placement="bottom" title="@(Model.Status != null ? Model.Status.Name : "Durum bilinmiyor")"></i>
+        <i class="fa fa-database" style="color:#000" data-toggle="tooltip" data-placement="bottom" title=""></i>
     </div>
     <div class="list-todo-item dark">
-        <a  class="list-toggle-container ajax-content" ac-target="#missions-container-@Model.Id" ac-url="@Url.Action("Missions","Company",new { projectId = Model.Id })" data-toggle="collapse" data-parent="#accordion1" href="#missions-@Model.Id" aria-expanded="false">
+        <a  class="list-toggle-container ajax-content" ac-target="#missions-container-${entry.Id}" ac-url="https://localhost:44310/api/Mission/project//${entry.Id}" data-toggle="collapse" data-parent="#accordion1" href="#missions-${entry.Id}" aria-expanded="false">
             <div class="list-toggle done uppercase">
 
                 <!-- Proje isim ve durumu -->
-                <div class="list-toggle-title bold">@Model.Name</div>
+                <div class="list-toggle-title bold">${entry.Name}</div>
 
 
                 <!-- Görev sayısı -->
-                <span class=" mr-1 ml-1 my-auto p-1 text-dark bg-light pull-right">@(Model.Missions != null ? Model.Missions.Count : 0) adet görev</span>
+                <span class=" mr-1 ml-1 my-auto p-1 text-dark bg-light pull-right"> </span>
 
             </div>
 
         </a>
         
-        <div class="task-list panel-collapse collapse" id="missions-@Model.Id">
+        <div class="task-list panel-collapse collapse" id="missions-${entry.Id}">
 
-            <ul id="missions-container-@Model.Id">
+            <ul id="missions-container-${entry.Id}" @*class="load-from-api" api-url="https://localhost:44310/api/Mission/project/${entry.ID}"*@>
 
             </ul>
 
@@ -33,7 +33,7 @@
                 <div class="row">
                     <!-- Remove project -->
                     <div class="col-4">
-                        <a class="task-trash btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@Url.Action("Project","Delete",new { id = Model.Id })" data-title="Proje Silme" data-toggle="tooltip" data-placement="top" title="Projeyi sil">
+                        <a class="task-trash btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@(Url.Action("Project","Delete"))/${entry.Id}" data-title="Proje Silme" data-toggle="tooltip" data-placement="top" title="Projeyi sil">
                             <i class="fa fa-trash"></i>
                         </a>
 
@@ -41,7 +41,7 @@
 
                     <!-- Edit project -->
                     <div class="col-4">
-                        <a class="task-trash btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@Url.Action("Project","Add",new { id = Model.Id })" data-title="Proje Düzenle" data-toggle="tooltip" data-placement="top" title="Projeyi Düzenle">
+                        <a class="task-trash btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@(Url.Action("Project","Add"))/${entry.Id}" data-title="Proje Düzenle" data-toggle="tooltip" data-placement="top" title="Projeyi Düzenle">
                             <i class="fas fa-edit"></i>
                         </a>
 
@@ -49,7 +49,7 @@
 
                     <!-- Add mission to project -->
                     <div class="col-4">
-                        <a class="task-add btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@Url.Action("Mission","Add",new { projectId = Model.Id })" data-title="Görev Ekleme" data-toggle="tooltip" data-placement="top" title="Projeye görev ekle">
+                        <a class="task-add btn btn-hover-primary p-4 w-100 h-100 dialog-link" data-href="@(Url.Action("Mission","Add"))/${entry.Id}" data-title="Görev Ekleme" data-toggle="tooltip" data-placement="top" title="Projeye görev ekle">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>

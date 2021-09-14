@@ -52,8 +52,10 @@
                                                 sayısı
                                             </span>
                                             <span class="font-weight-bolder font-size-h5">
-                                                <span class="text-dark-90 font-weight-bold">
-
+                                                <span class="text-dark-90 font-weight-bold load-from-api" api-url="https://localhost:44310/api/Domain/company/${entry.Id}">
+                                                    <action>
+                                                        response.Values.length
+                                                    </action>
                                                 </span>
                                             </span>
                                         </div>
@@ -70,8 +72,10 @@
                                                 sayısı
                                             </span>
                                             <span class="font-weight-bolder font-size-h5">
-                                                <span class="text-dark-90 font-weight-bold">
-
+                                                <span class="text-dark-90 font-weight-bold load-from-api" api-url="https://localhost:44310/api/Central/company/${entry.Id}">
+                                                    <action>
+                                                        response.Values.length
+                                                    </action>
                                                 </span>
                                             </span>
                                         </div>
@@ -88,8 +92,10 @@
                                                 posta sayısı
                                             </span>
                                             <span class="font-weight-bolder font-size-h5">
-                                                <span class="text-dark-90 font-weight-bold">
-
+                                                <span class="text-dark-90 font-weight-bold load-from-api" api-url="https://localhost:44310/api/Mail/company/${entry.Id}">
+                                                    <action>
+                                                        response.Values.length
+                                                    </action>
                                                 </span>
                                             </span>
                                         </div>
@@ -202,7 +208,7 @@
 
                                         <li class="navi-item">
 
-                                            <a class="navi-link" href="">
+                                            <a class="navi-link" href="@(Url.Action("Profile","Company"))${entry.Id}">
                                                 <span class="dropdown-item">Profile git</span>
                                             </a>
 
@@ -210,7 +216,7 @@
 
                                         <li class="navi-item">
 
-                                            <a class="navi-link" href="">
+                                            <a class="navi-link" href="@(Url.Action("Projects","Company"))/${entry.Id}">
                                                 <span class="dropdown-item">Projeleri Gör</span>
                                             </a>
 
@@ -225,16 +231,11 @@
 
                                         <li class="navi-item">
 
-                                            <form action="/content/companies/add/" method="POST">
-                                                <input type="hidden" name="comp_id" value="<? echo $company->getId() ?>" />
-                                                <button type="submit" class="dropdown-item">BilgileriDüzenle</button>
-                                            </form>
-
+                                            <a class="navi-link" href="@(Url.Action("Projects","Company"))/${entry.Id}">
+                                                <span class="dropdown-item">Bilgileri Düzenle</span>
+                                            </a>
                                         </li>
 
-                                        <li class="navi-item">
-                                            <button class="dropdown-item">Not Ekle</button>
-                                        </li>
 
                                     </ul>
 

@@ -3,6 +3,7 @@ using CMS.Entities.Dtos;
 using CMS.Mvc.Areas.Admin.Models;
 using CMS.Services.Abstract;
 using CMS.Shared.Utilities.Results.ComplexTypes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 namespace CMS.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CompanyController : Controller
     {
         

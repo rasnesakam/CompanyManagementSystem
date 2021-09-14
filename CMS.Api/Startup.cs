@@ -1,4 +1,5 @@
 using CMS.Api.AutoMapper.Profiles;
+using CMS.Api.Models;
 using CMS.Services.AutoMapper.Profiles;
 using CMS.Services.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -34,11 +35,18 @@ namespace CMS.Api
             {
                 c.AddPolicy("AllowOrigin", op => op.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
-            services.AddControllers().AddJsonOptions(opt =>
-            {
-                opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-            }); ;
+            services.AddControllers(opt =>
+                {
+                    opt.Filters.Add<ValidationFilter>();
+                })
+                .AddJsonOptions(opt =>
+                {
+                    opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                }).ConfigureApiBehaviorOptions(opt=>
+                {
+                    opt.SuppressModelStateInvalidFilter = true;
+                });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CMS.Api", Version = "v1" });

@@ -27,7 +27,7 @@ namespace CMS.Mvc
             services.AddSession();
             services.ConfigureApplicationCookie(opt=>
             {
-                opt.LoginPath = new PathString();
+                opt.LoginPath = new PathString("/Account/User/Login");
                 opt.LogoutPath = new PathString();
                 opt.Cookie = new CookieBuilder
                 {
@@ -63,9 +63,8 @@ namespace CMS.Mvc
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAreaControllerRoute(
-                    name:"Admin",
-                    areaName:"Admin",
+                endpoints.MapControllerRoute(
+                    name:"default",
                     pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}"
                     );
                 endpoints.MapControllers();

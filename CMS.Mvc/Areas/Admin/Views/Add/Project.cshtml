@@ -7,7 +7,7 @@
 
 <div class="form-group p-4">
 
-    <form asp-action="Project" id="ajaxFormSender" data-url="@Url.Action("Project","Add")">
+    <form id="add-form" >
         
         <div class="row mb-3">
             <label asp-for="Name"></label>
@@ -40,7 +40,7 @@
         <div class="row mb-3">
             <label asp-for="StatusId" > </label>
             <div class="input-group mt-2 mb-2 w-100">
-                <select  class="selectpicker" asp-for="StatusId" asp-items="@(new SelectList(ViewBag.Statuses,"Id","Name"))">
+                <select  class="selectpicker" asp-for="StatusId" >
                 </select>
             </div>
             <span class="text-danger" asp-validation-for="StatusId"></span>
@@ -48,7 +48,7 @@
         <div class="row mb-3">
             <label asp-for="Tags"> </label>
             <div class="input-group mt-2 mb-2 w-100">
-                <select id="tags" class="selectpicker" data-width="100%" multiple data-actions-box="true" asp-items="@(new SelectList(ViewBag.Tags,"Id","Name"))">
+                <select id="tags" class="selectpicker" data-width="100%" multiple data-actions-box="true" >
                 </select>
             </div>
             <span class="text-danger" asp-validation-for="Tags"></span>
@@ -65,5 +65,23 @@
             $('.selectpicker').selectpicker('show');
         </script>
     </form>
-    <script src="~/assets/js/custom/ajax-form-sender.js"></script>
+    <script>
+        $('#add-form').on('submit', function (e) {
+            alert("submitted")
+            e.preventDefault();
+            let formData = new FormData(document.getElementById("add-form"));
+            fetch(
+                "https://localhost:44310/api/Project",
+                {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: formData,
+
+                }
+            ).then(response => response.json()).then(response => console.log(response))
+        })
+    </script>
 </div>

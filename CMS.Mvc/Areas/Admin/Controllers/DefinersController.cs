@@ -4,6 +4,7 @@ using CMS.Mvc.Areas.Admin.Models;
 using CMS.Services.Abstract;
 using CMS.Shared.Utilities.Extensions;
 using CMS.Shared.Utilities.Results.ComplexTypes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 namespace CMS.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class DefinersController : Controller
     {
         private IStatusService _statusService;
