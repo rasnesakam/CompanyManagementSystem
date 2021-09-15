@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class ReminderAddDto: IODtobase
+    public class ReminderAddDto: AddDtoBase
     {
     }
 }

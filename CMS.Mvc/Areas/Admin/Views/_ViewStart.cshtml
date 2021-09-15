@@ -1,3 +1,12 @@
-﻿@{
+﻿@using System.Text.Json
+@using CMS.Entities.Concrete
+@{
     Layout = "_Layout";
+    foreach (var cookie in HttpContextAccessor.HttpContext.Request.Cookies)
+    {
+        if (cookie.Key == "user")
+        {
+            ViewBag.User = JsonSerializer.Deserialize<User>(cookie.Value);
+        }
+    }
 }

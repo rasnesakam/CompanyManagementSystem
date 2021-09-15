@@ -14,12 +14,12 @@
         <!--begin::Header-->
         <div class="d-flex align-items-center mt-5">
             <div class="symbol symbol-100 mr-5">
-                <div class="symbol-label" style="background-image:url('/assets/media/users/300_25.jpg')"></div>
+                <div class="symbol-label" style="background-image: url('https://localhost:44310/uploads/users/avatars/@ViewBag.User.Avatar')"></div>
                 <i class="symbol-badge bg-success"></i>
             </div>
             <div class="d-flex flex-column">
                 <a href="#"
-                   class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary"><?php echo $_SESSION['username']; ?></a>
+                   class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">@ViewBag.User.FirstName @ViewBag.User.LastName</a>
                 <div class="navi mt-2">
                     <a href="#" class="navi-item">
                         <span class="navi-link p-0 pb-2">
@@ -39,10 +39,10 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="navi-text text-muted text-hover-primary"><?php echo $_SESSION['email']; ?></span>
+                            <span class="navi-text text-muted text-hover-primary">@ViewBag.User.Email</span>
                         </span>
                     </a>
-                    <a href="/" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Çıkış yap</a>
+                    <a href="/Account/User/Login" class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">Çıkış yap</a>
                 </div>
             </div>
         </div>

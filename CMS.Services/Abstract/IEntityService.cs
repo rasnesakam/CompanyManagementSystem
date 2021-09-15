@@ -20,8 +20,8 @@ namespace CMS.Services.Abstract
         Task<IDataResult<ICollection<Entity>>> GetAllByActiveAndNonDeleted(params Expression<Func<Entity, object>>[] includeProperty);
         Task<IDataResult<ICollection<Entity>>> GetAllByNonActive(params Expression<Func<Entity, object>>[] includeProperty);
 
-        Task<IDataResult<Entity>> Add(IODtobase dto);
-        Task<IDataResult<Entity>> Update(IODtobase dto);
+        Task<IDataResult<Entity>> Add(AddDtoBase dto);
+        Task<IDataResult<Entity>> Update(AddDtoBase dto);
 
         Task<IResult> Delete(int entityId, string modifiedByName);
         Task<IResult> HardDelete(int entityId);

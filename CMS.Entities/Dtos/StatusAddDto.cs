@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class StatusAddDto : IODtobase
+    public class StatusAddDto : AddDtoBase
     {
         [Display(Name = "Durum İsmi")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

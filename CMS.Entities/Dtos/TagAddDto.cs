@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CMS.Entities.Dtos
 {
-    public class TagAddDto:IODtobase
+    public class TagAddDto:AddDtoBase
     {
         [Display(Name = "Etiket İsmi")]
         [Required(ErrorMessage ="{0} alanı zorunludur")]

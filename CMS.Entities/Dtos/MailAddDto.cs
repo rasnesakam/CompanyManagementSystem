@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class MailAddDto:IODtobase
+    public class MailAddDto:AddDtoBase
     {
         [Display(Name = "E Posta adı")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

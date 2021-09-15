@@ -15,7 +15,7 @@ namespace CMS.Shared.Services.Concrete
         where Entity: EntityBase
     {
 
-        public Task<IDataResult<DtoBase<Entity>>> Add(IODtobase addDto, string userName)
+        public Task<IDataResult<DtoBase<Entity>>> Add(AddDtoBase addDto, string userName)
         {
             throw new NotImplementedException();
         }
@@ -55,7 +55,7 @@ namespace CMS.Shared.Services.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<IDataResult<DtoBase<Entity>>> Update(IODtobase updateDto, string userName)
+        public Task<IDataResult<DtoBase<Entity>>> Update(AddDtoBase updateDto, string userName)
         {
             throw new NotImplementedException();
         }

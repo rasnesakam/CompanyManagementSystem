@@ -9,7 +9,6 @@ function openDialog(link,title){
 }
 
 $('.dialog-link').on('click',function(){
-    console.log("you clicked me");
     var href = $(this).data('href');
     var title = $(this).data('title');
     openDialog(href,title);

@@ -1,16 +1,29 @@
 ﻿$('#ajaxFormSender').on('submit', function (e) {
     e.preventDefault();
     let url = $(this).attr('data-url');
-    let serializedData = $(this).serialize();
-    $.post(url, serializedData).done(function (data) {
-        console.log(data);
-        let returnedData = JSON.parse(data);
-        let StatusCode = returnedData.StatusCode;
-        if (StatusCode == 201) location.reload();
-        if (StatusCode == 400) {
-            let newContent = $(returnedData.PartialView)
-            $('#ajaxFormSender').parent().html(newContent.find('#ajaxFormSender').parent().html())
+    let data = {};
+    new FormData($(this)[0]).forEach((val, key) => data[key] = val);
+    console.log(data);
+    fetch(
+        url,
+        {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type':'application/json'
+            }
         }
-        
+    ).then(respoonse => respoonse.json()).then(response => {
+        if (response.StatusCode < 300 && response.StatusCode >= 200) {
+
+            for (var message of response.Messages) {
+                toastr.success(message, "Başarılı")
+            }
+        }
+        else {
+            for (var message of response.Messages) {
+                toastr.error(message,"Hata!")
+            }
+        }
     })
 });

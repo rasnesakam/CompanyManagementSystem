@@ -16,6 +16,7 @@ using CMS.Shared.Utilities.Extensions;
 using CMS.Entities.Concrete;
 using CMS.Shared.Entities.Dtos;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Http;
 
 namespace CMS.Mvc.Areas.Admin.Controllers
 {
@@ -54,8 +55,14 @@ namespace CMS.Mvc.Areas.Admin.Controllers
         public async Task<IActionResult> Project(int compId)
         {
             ViewBag.CompanyId = compId;
-            
-            
+            HttpClient client = new HttpClient();
+            HttpResponseMessage status = await client.GetAsync("https://localhost:44310/api/Status");
+            status.EnsureSuccessStatusCode();
+            string statusResponse = await status.Content.ReadAsStringAsync();
+            HttpResponseMessage tags = await client.GetAsync("https://localhost:44310/api/Status");
+            tags.EnsureSuccessStatusCode();
+            string TagsResponse = await tags.Content.ReadAsStringAsync();
+
             return View();
         }
         

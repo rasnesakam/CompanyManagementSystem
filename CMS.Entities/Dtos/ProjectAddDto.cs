@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class ProjectAddDto:IODtobase
+    public class ProjectAddDto:AddDtoBase
     {
         [Display(Name="Proje İsmi")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

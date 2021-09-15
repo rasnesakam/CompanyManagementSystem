@@ -11,27 +11,37 @@
 <div class="form-group">
     <form asp-action="Central" id="ajaxFormSender" data-url="@Url.Action("Domain","Add")">
 
-            <input type="hidden" name="IsValid" value="@ViewData.ModelState.IsValid.ToString()" />
-            <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display:none"></div>
+        <input type="hidden" name="IsValid" value="@ViewData.ModelState.IsValid.ToString()" />
+        <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display:none"></div>
 
-            <div class="form-group">
-                <label asp-for="Name"></label>
-                <input class="form-control" asp-for="Name" />
-                <span class="text-danger" asp-validation-for="Name"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <input class="form-control" asp-for="Description" />
-                <span class="text-danger" asp-validation-for="Description"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParentId"></label>
-                <span class="text-danger" asp-validation-for="ParentId"></span>
-                <select class="form-control" asp-for="ParentId" asp-items="@(new SelectList(ViewBag.Companies,"Id","Name"))"></select>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Kaydet</button>
-            </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentId"></label>
+            <span class="text-danger" asp-validation-for="ParentId"></span>
+            @if (ViewBag.ParentId == null)
+            {
+                <select class="form-control load-from-api" asp-for="ParentId" api-url="https://localhost:44310/api/Company">
+                    <template>
+                        <option value="${entry.Id}">${entry.Name}</option>
+                    </template>
+                </select>
+            }
+        </div>
+        <div class="form-group">
+            <input asp-for="CreatedByName" value="@ViewBag.User.UserName" type="hidden" />
+            <input asp-for="ModifiedByName" value="@ViewBag.User.UserName" type="hidden" />
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
     </form>
     <script src="~/assets/js/custom/ajax-form-sender.js"></script>
+    <script src="~/assets/js/custom/loadFromApi.js"></script>
 </div>

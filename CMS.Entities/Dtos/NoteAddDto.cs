@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class NoteAddDto:IODtobase
+    public class NoteAddDto:AddDtoBase
     {
         [Display(Name="Not İsmi")]
         [Required]

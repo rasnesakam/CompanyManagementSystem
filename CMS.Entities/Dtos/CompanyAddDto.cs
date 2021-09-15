@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class CompanyAddDto: IODtobase
+    public class CompanyAddDto: AddDtoBase
     {
         [Display(Name = "Şirket İsmi")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

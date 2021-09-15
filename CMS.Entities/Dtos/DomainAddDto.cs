@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class DomainAddDto: IODtobase
+    public class DomainAddDto: AddDtoBase
     {
         [Display(Name = "Domain adı")]
         [Required(ErrorMessage = "{0} alanı zorunludur")]

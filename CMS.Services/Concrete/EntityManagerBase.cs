@@ -31,22 +31,18 @@ namespace CMS.Services.Concrete
             _repo = _unitOfWork.GetRepository<Entity>();
         }
 
-        public async Task<IDataResult<Entity>> Add(IODtobase dto)
+        public async Task<IDataResult<Entity>> Add(AddDtoBase dto)
         {
             try
             {
                 var e = _mapper.Map<Entity>(dto);
-                if(dto.CreatedByName != null)
-                {
-                    e.CreatedByName = dto.CreatedByName;
-                    e = await _repo.AddAsync(e);
-                    await _unitOfWork.SaveAsync();
-                    return new DataResult<Entity>(ResultStatus.Success, e, "Veri eklendi");
-                }
-                return new DataResult<Entity>(ResultStatus.Warning, null, "Verinin kim tarafından ekleneceği belirlenemedi");
+
+                e = await _repo.AddAsync(e);
+                await _unitOfWork.SaveAsync();
+                return new DataResult<Entity>(ResultStatus.Success, e, "Veri eklendi");
             }
-            catch {
-                return new DataResult<Entity>(ResultStatus.Error, null, "Bir hata meydana geldi");
+            catch (Exception e) {
+                return new DataResult<Entity>(ResultStatus.Error, null, $"Bir hata meydana geldi: {e.Message}");
             }
         }
 
@@ -114,7 +110,7 @@ namespace CMS.Services.Concrete
             else return new Result(ResultStatus.Error, "Veri silinemedi.");
         }
 
-        public async Task<IDataResult<Entity>> Update(IODtobase dto)
+        public async Task<IDataResult<Entity>> Update(AddDtoBase dto)
         {
             try
             {

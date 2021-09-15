@@ -8,7 +8,6 @@
 
 <!--begin::Row::DC-->
 <div class="row">
-    <a asp-area="Identity" asp-action="Login" asp-controller="User"> GİRT</a>
     <!--Santraller-->
     <div class="col-lg-6">
         <!--begin::List Widget 4-->
@@ -62,8 +61,8 @@
                     <tbody class="load-from-api" api-url="https://localhost:44310/api/Central">
                         <template>
                             <tr>
-                                <td>${entry.name}</td>
-                                <td>${entry.description}</td>
+                                <td>${entry.Name}</td>
+                                <td>${entry.Description}</td>
                                 <td>
                                     <div class="btn-group dropleft" data-toggle="tooltip" title="Detay">
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class ReplyAddDto:IODtobase
+    public class ReplyAddDto:AddDtoBase
     {
         [Display(Name="Yorum")]
         [Required(ErrorMessage ="{0} alanı zorunludur")]

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CMS.Entities.Dtos
 {
-    public class CommentAddDto<CEntity,PEntity>: IODtobase
+    public class CommentAddDto<CEntity,PEntity>: AddDtoBase
         where PEntity: EntityBase,new()
         where CEntity: CommentEntityBase<PEntity>
     {

@@ -8,7 +8,7 @@
 
 <div class="form-group p-4">
 
-    <form asp-action="Mission" id="ajaxFormSender" data-url="@Url.Action("Mission","Add")">
+    <form asp-action="Mission" id="ajaxFormSender" data-url="https://localhost:44310/api/Mission">
 
         <div class="row mb-3">
             <label asp-for="Name"></label>
@@ -41,18 +41,27 @@
         <div class="row mb-3">
             <label asp-for="StatusId"> </label>
             <div class="input-group mt-2 mb-2 w-100">
-                <select class="selectpicker" asp-for="StatusId" asp-items="@(new SelectList(ViewBag.Statuses,"Id","Name"))">
-                </select>
+                @if (ViewBag.ParentId == null)
+                {
+                    <select class="selectpicker form-control load-from-api" asp-for="StatusId" api-url="https://localhost:44310/api/Status">
+                    </select>
+                }
             </div>
             <span class="text-danger" asp-validation-for="StatusId"></span>
         </div>
 
-        
+
         <div class="row mb-3">
             <label asp-for="Tags"> </label>
             <div class="input-group mt-2 mb-2 w-100">
-                <select id="tags" class="selectpicker" data-width="100%" multiple data-actions-box="true" asp-items="@(new SelectList(ViewBag.Tags,"Id","Name"))">
-                </select>
+                @if (ViewBag.Tags == null)
+                {
+                    <select asp-for="Tags" class="selectpicker load-from-api" data-width="100%" multiple data-actions-box="true" api-url="https://localhost:44310/api/Status">
+                        <template>
+                            <option value="${entry.Id}">${entry.Name}</option>
+                        </template>
+                    </select>
+                }
             </div>
             <span class="text-danger" asp-validation-for="Tags"></span>
             <p>
@@ -61,7 +70,9 @@
             </p>
         </div>
         <div class="row">
-            <input asp-for="ProjectId" type="hidden" value="@(ViewBag.ProjectId != null ? ViewBag.ProjectId: Model.ProjectId)" />
+            <input asp-for="ProjectId" type="hidden" value="@ViewBag.ProjectId" />
+            <input asp-for="CreatedByName" value="@ViewBag.User.UserName" type="hidden" />
+            <input asp-for="ModifiedByName" value="@ViewBag.User.UserName" type="hidden" />
             <input type="submit" class="btn btn-hover-primary" value="Ekle">
         </div>
         <script>
@@ -69,4 +80,5 @@
         </script>
     </form>
     <script src="~/assets/js/custom/ajax-form-sender.js"></script>
+    <script src="~/assets/js/custom/loadFromApi.js"></script>
 </div>
