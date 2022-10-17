@@ -1,6 +1,5 @@
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\bin\Debug\net5.0\CMS.Shared.deps.json
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\bin\Debug\net5.0\CMS.Shared.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Shared\bin\Debug\net5.0\ref\CMS.Shared.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\bin\Debug\net5.0\CMS.Shared.pdb
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\CMS.Shared.csproj.AssemblyReference.cache
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\CMS.Shared.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\CMS.Shared.csproj.Cor
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\CMS.Shared.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\ref\CMS.Shared.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\CMS.Shared.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Shared\obj\Debug\net5.0\refint\CMS.Shared.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kWl8gDu2exvypFEjQR7hv8djWRsrREkelkqObkOOiJd9C106jBhPO8sc1ytJbUCp/wybrz+eQ8wXkaxF5wv/Cg==",
+  "dgSpecHash": "MF52KepWFwVjzJmhxjALXl1IauEVflSh5fDrm0gkXakBohP1EDXRo3VYi/X/B+qiuvS+ul3zl5Qx9Bm0MHVUpw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\CMS\\CMS.Services\\CMS.Services.csproj",
   "expectedPackageFiles": [
@@ -178,7 +178,10 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

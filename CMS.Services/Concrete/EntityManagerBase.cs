@@ -42,7 +42,7 @@ namespace CMS.Services.Concrete
                 return new DataResult<Entity>(ResultStatus.Success, e, "Veri eklendi");
             }
             catch (Exception e) {
-                return new DataResult<Entity>(ResultStatus.Error, null, $"Bir hata meydana geldi: {e.Message}");
+                return new DataResult<Entity>(ResultStatus.Error, $"Bir hata meydana geldi: {e.Message}");
             }
         }
 
@@ -65,7 +65,7 @@ namespace CMS.Services.Concrete
         {
             var res = await _repo.GetAsync(e => e.Id == entityId,includeProperty);
             if (res != null) return new DataResult<Entity>(ResultStatus.Success, res);
-            else return new DataResult<Entity>(ResultStatus.Error, null, "Veri bulunamadı");
+            else return new DataResult<Entity>(ResultStatus.Error, "Veri bulunamadı");
         }
 
         public async Task<IDataResult<ICollection<Entity>>> GetAll(Expression<Func<Entity, bool>> predicate = null, params Expression<Func<Entity, object>>[] includeProperty)
@@ -110,23 +110,19 @@ namespace CMS.Services.Concrete
             else return new Result(ResultStatus.Error, "Veri silinemedi.");
         }
 
-        public async Task<IDataResult<Entity>> Update(AddDtoBase dto)
+        public async Task<IDataResult<Entity>> Update(int id, AddDtoBase dto)
         {
             try
             {
                 var e = _mapper.Map<Entity>(dto);
-                if (dto.ModifiedByName != null)
-                {
-                    e.ModifiedByName = dto.ModifiedByName;
-                    await _repo.UpdateAsync(e);
-                    await _unitOfWork.SaveAsync();
-                    return new DataResult<Entity>(ResultStatus.Success, e);
-                }
-                else return new DataResult<Entity>(ResultStatus.Warning, null, "Bu verinin kim tarafından değiştirildiği belirlenemedi.");
+                e.Id = id;
+                await _repo.UpdateAsync(e);
+                await _unitOfWork.SaveAsync();
+                return new DataResult<Entity>(ResultStatus.Success, e);
             }
             catch
             {
-                return new DataResult<Entity>(ResultStatus.Error, null,"Veri güncellenemedi");
+                return new DataResult<Entity>(ResultStatus.Error, "Veri güncellenemedi");
             }
         }
     }

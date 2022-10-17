@@ -5,7 +5,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\CMS.Mvc.deps.json
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\CMS.Mvc.runtimeconfig.json
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\CMS.Mvc.runtimeconfig.dev.json
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\CMS.Mvc.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\ref\CMS.Mvc.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\CMS.Mvc.pdb
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.csproj.AssemblyReference.cache
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.GeneratedMSBuildEditorConfig.editorconfig
@@ -14,7 +13,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.AssemblyInfo.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\staticwebassets\CMS.Mvc.StaticWebAssets.Manifest.cache
-C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\staticwebassets\CMS.Mvc.StaticWebAssets.xml
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\scopedcss\bundle\CMS.Mvc.styles.css
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.RazorTargetAssemblyInfo.cache
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\CMS.Mvc.dll
@@ -473,3 +471,4 @@ C:\Users\ASUS\source\repos\CMS\CMS.Mvc\bin\Debug\net5.0\runtimes\win-arm64\lib\n
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Account\Views\User\Index.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Account\Views\User\Login.cshtml.g.cs
 C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\Razor\Areas\Account\Views\_ViewImports.cshtml.g.cs
+C:\Users\ASUS\source\repos\CMS\CMS.Mvc\obj\Debug\net5.0\refint\CMS.Mvc.dll

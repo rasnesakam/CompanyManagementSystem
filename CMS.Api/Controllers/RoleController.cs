@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMS.Api.Models;
+using CMS.Entities.Concrete;
+using CMS.Services.Abstract;
+using CMS.Shared.Utilities.Results.ComplexTypes;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CMS.Api.Controllers
@@ -11,27 +17,42 @@ namespace CMS.Api.Controllers
     [ApiController]
     public class RoleController : ControllerBase
     {
+        private readonly RoleManager<Role> _roleService;
+
+        public RoleController(RoleManager<Role> roleService)
+        {
+            _roleService = roleService;
+        }
+
         [HttpGet]
         public async Task<string> Get()
         {
-            return "value";
+            var roles = _roleService.Roles;
+            return JsonSerializer.Serialize(new ReturnModel<Role>
+            {
+                StatusCode = (int)ResultStatus.Success,
+                Messages = new(),
+                Values = roles.ToList()
+            });
         }
 
         [HttpGet("{id}")]
         public async Task<string> Get(int id)
         {
-            return "value";
+            var roles = await _roleService.FindByIdAsync(id.ToString());
+            return JsonSerializer.Serialize(new ReturnModel<Role>
+            {
+                StatusCode = (int)ResultStatus.Success,
+                Messages = new(),
+                Values = new List<Role>(new Role[] { roles })
+            });
         }
 
-        [HttpGet("company/{id}")]
-        public async Task<string> GetForCompany(int id)
-        {
-            return "value";
-        }
 
         [HttpPost]
-        public async Task<string> Post()
+        public async Task<string> Post([FromBody] Role role)
         {
+
             return "value";
         }
 

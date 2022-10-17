@@ -2,7 +2,6 @@ C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Data.deps.json
 C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Data.runtimeconfig.json
 C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Data.runtimeconfig.dev.json
 C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Data.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\ref\CMS.Data.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Data.pdb
 C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Entities.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Data\bin\Debug\net5.0\CMS.Shared.dll
@@ -18,3 +17,4 @@ C:\Users\ASUS\source\repos\CMS\CMS.Data\obj\Debug\net5.0\CMS.Data.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Data\obj\Debug\net5.0\ref\CMS.Data.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Data\obj\Debug\net5.0\CMS.Data.pdb
 C:\Users\ASUS\source\repos\CMS\CMS.Data\obj\Debug\net5.0\CMS.Data.genruntimeconfig.cache
+C:\Users\ASUS\source\repos\CMS\CMS.Data\obj\Debug\net5.0\refint\CMS.Data.dll

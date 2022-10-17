@@ -30,7 +30,7 @@ namespace CMS.Data.Abstract
         ICompanyrepository Companies { get; }
         ICentralRepository Centrals { get; }
 
-         IEntityRepository<T> GetRepository<T>() where T : class, IEntity, new();
+         IEntityRepository<T> GetRepository<T>() where T :EntityBase, new();
 
         Task<int> SaveAsync();
     }

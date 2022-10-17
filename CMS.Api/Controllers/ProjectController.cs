@@ -107,7 +107,7 @@ namespace CMS.Api.Controllers
             ReturnModel<Project> model;
             if (ModelState.IsValid)
             {
-                var res = await _projectService.Update(dto);
+                var res = await _projectService.Update(id, dto);
                 model = new ReturnModel<Project>
                 {
                     StatusCode = (int)res.Status,

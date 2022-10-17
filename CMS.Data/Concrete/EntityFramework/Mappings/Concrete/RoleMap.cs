@@ -20,6 +20,7 @@ namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
             builder.HasIndex(r => r.NormalizedName).HasDatabaseName("RoleNameIndex").IsUnique();
             builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.RoleId).IsRequired();
             builder.HasMany<RoleClaim>().WithOne().HasForeignKey(rc => rc.RoleId).IsRequired();
+            builder.HasData(new Role() { Id = 1, Name = "Admin", NormalizedName = "ADMIN" });
         }
     }
 }

@@ -102,13 +102,13 @@ namespace CMS.Api.Controllers
             return JsonSerializer.Serialize(model);
         }
 
-        [HttpPut]
-        public async Task<string> Put(CentralAddDto dto)
+        [HttpPut("{id}")]
+        public async Task<string> Put(int id, CentralAddDto dto)
         {
             ReturnModel<Central> model;
             if (ModelState.IsValid)
             {
-                var res = await centralService.Update(dto);
+                var res = await centralService.Update(id, dto);
                 if (res.Status == ResultStatus.Success) 
                     model = new ReturnModel<Central>
                     {

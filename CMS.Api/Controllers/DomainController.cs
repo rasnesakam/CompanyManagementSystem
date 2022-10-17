@@ -92,12 +92,12 @@ namespace CMS.Api.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<string> Put([FromBody] DomainAddDto dto)
+        [HttpPut("{id}")]
+        public async Task<string> Put(int id, [FromBody] DomainAddDto dto)
         {
             if (ModelState.IsValid)
             {
-                var res = await _domainService.Add(dto);
+                var res = await _domainService.Update(id,dto);
                 return JsonSerializer.Serialize(new ReturnModel<Domain>
                 {
                     StatusCode = (int)res.Status,

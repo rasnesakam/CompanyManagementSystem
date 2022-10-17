@@ -895,6 +895,15 @@ namespace CMS.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "ce6ce684-9b29-479a-a388-eacc26b16f5c",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("CMS.Entities.Concrete.RoleClaim", b =>
@@ -1086,6 +1095,22 @@ namespace CMS.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "26734cdf-384e-48c7-af63-db99cbb9b671",
+                            EmailConfirmed = false,
+                            FirstName = "Ensar",
+                            LastName = "Makas",
+                            LockoutEnabled = false,
+                            PasswordHash = new byte[] { 101, 49, 48, 97, 100, 99, 51, 57, 52, 57, 98, 97, 53, 57, 97, 98, 98, 101, 53, 54, 101, 48, 53, 55, 102, 50, 48, 102, 56, 56, 51, 101 },
+                            PhoneNumberConfirmed = false,
+                            TwoFactorEnabled = false,
+                            UserName = "ensar"
+                        });
                 });
 
             modelBuilder.Entity("CMS.Entities.Concrete.UserClaim", b =>

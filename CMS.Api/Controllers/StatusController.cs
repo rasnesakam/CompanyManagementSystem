@@ -12,6 +12,7 @@ namespace CMS.Api.Controllers
     [ApiController]
     public class StatusController : ControllerBase
     {
+
         [HttpGet]
         public async Task<string> Get()
         {

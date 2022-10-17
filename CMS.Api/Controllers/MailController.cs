@@ -90,12 +90,12 @@ namespace CMS.Api.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<string> Put([FromBody] MailAddDto dto)
+        [HttpPut("{id}")]
+        public async Task<string> Put(int id, [FromBody] MailAddDto dto)
         {
             if (ModelState.IsValid)
             {
-                var res = await _mailService.Update(dto);
+                var res = await _mailService.Update(id, dto);
                 return JsonSerializer.Serialize(new ReturnModel<Mail>
                 {
                     StatusCode = (int)res.Status,

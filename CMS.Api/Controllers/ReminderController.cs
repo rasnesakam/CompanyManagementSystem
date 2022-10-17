@@ -90,12 +90,12 @@ namespace CMS.Api.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<string> Put([FromBody] ReminderAddDto dto)
+        [HttpPut("{id}")]
+        public async Task<string> Put(int id,[FromBody] ReminderAddDto dto)
         {
             if (ModelState.IsValid)
             {
-                var res = await _reminderService.Update(dto);
+                var res = await _reminderService.Update(id, dto);
                 return JsonSerializer.Serialize(new ReturnModel<Reminder>
                 {
                     StatusCode = (int)res.Status,

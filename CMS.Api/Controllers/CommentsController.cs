@@ -84,13 +84,13 @@ namespace CMS.Api.Controllers
             return JsonSerializer.Serialize(model);
         }
 
-        [HttpPut]
-        public async Task<string> Put(CommentAddDto<MissionComment,Mission> dto) 
+        [HttpPut("{id}")]
+        public async Task<string> Put(int id, CommentAddDto<MissionComment,Mission> dto) 
         {
             ReturnModel<MissionComment> model;
             if (ModelState.IsValid)
             {
-                var res = await _commentService.Update(dto);
+                var res = await _commentService.Update(id, dto);
                 model = new ReturnModel<MissionComment>
                 {
                     StatusCode = (int)res.Status,

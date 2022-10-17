@@ -17,5 +17,9 @@ namespace CMS.Shared.Utilities.Results.Concrete
         {
             Data = data;
         }
+        public DataResult(ResultStatus status, string message = null, Exception exception = null)
+        : base(status, message, exception)
+        {
+        }
     }
 }

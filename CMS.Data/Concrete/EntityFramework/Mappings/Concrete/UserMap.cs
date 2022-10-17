@@ -37,6 +37,15 @@ namespace CMS.Data.Concrete.EntityFramework.Mappings.Concrete
             builder.HasMany<UserLogin>().WithOne().HasForeignKey(ul => ul.UserId).IsRequired();
             builder.HasMany<UserToken>().WithOne().HasForeignKey(ut => ut.UserId).IsRequired();
             builder.HasMany<UserRole>().WithOne().HasForeignKey(ur => ur.UserId).IsRequired();
+
+            builder.HasData(new User()
+            {
+                Id = 1,
+                UserName = "ensar",
+                FirstName = "Ensar",
+                LastName = "Makas",
+                PasswordHash = "e10adc3949ba59abbe56e057f20f883e"
+            });
         }
     }
 }

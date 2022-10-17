@@ -103,8 +103,8 @@ namespace CMS.Api.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<string> Put([FromBody] CompanyAddDto dto) {
+        [HttpPut("{id}")]
+        public async Task<string> Put(int id, [FromBody] CompanyAddDto dto) {
             if (dto.IconFile != null)
             {
                 string uploads = Path.Combine(_hostEnvironment.WebRootPath, "uploads/company/logos");
@@ -119,7 +119,7 @@ namespace CMS.Api.Controllers
             if (ModelState.IsValid)
             {
 
-                var res = await _companyService.Update(dto);
+                var res = await _companyService.Update(id, dto);
                 if (res.Status == ResultStatus.Success)
                 {
                     return JsonSerializer.Serialize<ReturnModel<Company>>(new ReturnModel<Company>

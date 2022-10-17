@@ -1,6 +1,5 @@
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Entities.deps.json
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Entities.dll
-C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\ref\CMS.Entities.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Entities.pdb
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Shared.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\bin\Debug\net5.0\CMS.Shared.pdb
@@ -13,3 +12,4 @@ C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.csproj
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\ref\CMS.Entities.dll
 C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\CMS.Entities.pdb
+C:\Users\ASUS\source\repos\CMS\CMS.Entities\obj\Debug\net5.0\refint\CMS.Entities.dll
